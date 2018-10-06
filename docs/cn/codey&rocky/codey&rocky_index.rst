@@ -12,6 +12,8 @@
 
 小程的python接口
 ---------------------------------------------
+小程的python接口API如下。
+
 .. toctree::
    :maxdepth: 1
 
@@ -20,8 +22,7 @@
 
 小奔的python接口
 ------------------------------
-
-MicroPython的特有功能如下。
+小奔的python接口API如下。
 
 .. toctree::
    :maxdepth: 1
@@ -30,6 +31,8 @@ MicroPython的特有功能如下。
 
 第三方类库接口
 ------------------------------
+第三方类库的python接口API如下。
+
 .. toctree::
    :maxdepth: 1
 
@@ -38,7 +41,7 @@ MicroPython的特有功能如下。
 神经元扩展模块的python接口
 ------------------------------
 
-MicroPython的特有功能如下。
+神经元扩展模块的python接口API如下。
 
 .. toctree::
    :maxdepth: 1
