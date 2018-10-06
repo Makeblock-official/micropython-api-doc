@@ -58,7 +58,7 @@
 
 .. image:: img/3.png
 
-7.将test.mpy文件拷贝放到TPYBoard v10x的TPFLASH中，直接在main.py中import即可。
+7.将test.mpy文件拷贝放到小程的flash中，直接在main.py中import即可。
 
 .. code-block:: python
 
@@ -66,7 +66,7 @@
 
 .. image:: img/4.png
   
-8.重置TPYBoard使其重新运行程序，大家就会看到LED4亮起来了。
+8.重置TPYBoard使其重新运行程序，大家就会看到小程的LED灯亮起来了。
 
 **注意：**
 如果运行时出现“ValueError: invalid .mpy file”错误的话，需要更新一下程小奔的micropython固件(最新版本是1.9.4)。
