@@ -9,5 +9,5 @@
 小奔的python接口如下。
 
 .. toctree::
-   :maxdepth: 1
+
    TFT液晶屏.rst
