@@ -2,8 +2,8 @@ MicroPython documentation and references
 ========================================
 
 .. toctree::
-    cn/codey/codey&rocky/codey&rocky_index.rst
-    cn/codey/&rocky/codey&rocky_index.rst
+    cn/codey&rocky/codey&rocky_index.rst
+    cn/codey&rocky/codey&rocky_index.rst
     cn/library/index.rst
     cn/reference/index.rst
     genrst/index.rst
