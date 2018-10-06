@@ -70,7 +70,7 @@ extensions = [
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['templates']
+templates_path = ['../templates']
 
 # The suffix of source filenames.
 source_suffix = '.rst'
@@ -79,7 +79,7 @@ source_suffix = '.rst'
 #source_encoding = 'utf-8-sig'
 
 # Specify a custom master document based on the port name
-master_doc = micropy_port + '_' + 'index'
+master_doc = '../' + micropy_port + '_' + 'index'
 
 # General information about the project.
 project = 'MicroPython makeblock'
@@ -135,7 +135,7 @@ pygments_style = 'sphinx'
 # of rst_prolog, so we follow. Absolute paths below mean "from the base
 # of the doctree".
 rst_epilog = """
-.. include:: /templates/replace.inc
+.. include:: ../templates/replace.inc
 """
 
 # -- Options for HTML output ----------------------------------------------
@@ -176,12 +176,12 @@ else:
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-html_favicon = 'static/favicon.ico'
+html_favicon = '../static/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['static']
+html_static_path = ['../static']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied

@@ -112,38 +112,3 @@ the following libraries.
    micropython.rst
    ucryptolib.rst
    uctypes.rst
-
-
-Libraries specific to the pyboard
----------------------------------
-
-The following libraries are specific to the pyboard.
-
-.. toctree::
-  :maxdepth: 2
-
-  pyb.rst
-  lcd160cr.rst
-
-
-Libraries specific to the WiPy
-------------------------------
-
-The following libraries and classes are specific to the WiPy.
-
-.. toctree::
-  :maxdepth: 2
-
-  wipy.rst
-  machine.TimerWiPy.rst
-
-
-Libraries specific to the ESP8266
----------------------------------
-
-The following libraries are specific to the ESP8266.
-
-.. toctree::
-  :maxdepth: 2
-
-  esp.rst
