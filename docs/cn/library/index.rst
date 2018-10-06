@@ -1,74 +1,46 @@
 .. _micropython_lib:
 
-MicroPython 官方类库
+microPython 官方类库
 =====================
 
 .. warning::
 
-   Important summary of this section
+   本章节的重要摘要
 
-   * MicroPython implements a subset of Python functionality for each module.
-   * To ease extensibility, MicroPython versions of standard Python modules
-     usually have ``u`` ("micro") prefix.
-   * Any particular MicroPython variant or port may miss any feature/function
-     described in this general documentation (due to resource constraints or
-     other limitations).
+   * MicroPython为每个模块实现了Python功能的子集。
+   * 为了简化可扩展性，MicroPython版本的标准Python模块通常有``u``（“micro”）前缀。
+   * 任何特定的MicroPython主板分支都可能遗漏本通用文档中描述的部分功能/函数（由于资源限制或其他限制）。
 
 
-This chapter describes modules (function and class libraries) which are built
-into MicroPython. There are a few categories of such modules:
+本章介绍了构成micropython的模块（函数和类库）。有几类模块:
 
-* Modules which implement a subset of standard Python functionality and are not
-  intended to be extended by the user.
-* Modules which implement a subset of Python functionality, with a provision
-  for extension by the user (via Python code).
-* Modules which implement MicroPython extensions to the Python standard libraries.
-* Modules specific to a particular `MicroPython port` and thus not portable.
+* 内置模块：标准Python功能的子集，用户不能扩展。
+* 扩展模块：实现了Python功能的一个子集，并提供用户扩展（通过Python代码）。
+* 扩展模块：实现micropython的Python标准库。
+* 硬件驱动模块:特定端口或者硬件驱动的模块，因此不可移植。
 
-Note about the availability of the modules and their contents: This documentation
-in general aspires to describe all modules and functions/classes which are
-implemented in MicroPython project. However, MicroPython is highly configurable, and
-each port to a particular board/embedded system makes available only a subset
-of MicroPython libraries. For officially supported ports, there is an effort
-to either filter out non-applicable items, or mark individual descriptions
-with "Availability:" clauses describing which ports provide a given feature.
+请注意模块及其内容的可用性：本文档通常所描述所有模块和函数/类在MicroPython项目中都会尽量实现。
+但是，MicroPython具有高度可配置性，所以在特定主板/嵌入式系统中可能会仅提供一个子集MicroPython库。
+对于官方支持的端口，我们会尽量过滤掉不适用的项目，或标记个别模块的“可用性：” 即使用子句描述主板提供的功能。
 
-With that in mind, please still be warned that some functions/classes
-in a module (or even the entire module) described in this documentation **may be
-unavailable** in a particular build of MicroPython on a particular system. The
-best place to find general information of the availability/non-availability
-of a particular feature is the "General Information" section which contains
-information pertaining to a specific `MicroPython port`.
+考虑到这一点，请仍然警告一些函数/类在本文档中描述的模块（甚至整个模块）中 **可能在特定系统上的特定MicroPython版本中不可用**。
+该查找可用性/不可用性的一般信息的最佳位置特定功能的“通用信息”部分包含有关特定`MicroPython主板`的信息。
 
-On some ports you are able to discover the available, built-in libraries that
-can be imported by entering the following at the REPL::
+在某些端口上，可用的内置库的查询，可以通过在REPL中输入以下内容来导入:: REPL::
 
     help('modules')
 
-Beyond the built-in libraries described in this documentation, many more
-modules from the Python standard library, as well as further MicroPython
-extensions to it, can be found in `micropython-lib`.
+除了本文档中描述的内置库之外，还有更多来自Python标准库的模块，它们可以提供更多的MicroPython
+的扩展，可以github的 `micropython-lib`找到.
 
-Python standard libraries and micro-libraries
+Python标准库和微型库
 ---------------------------------------------
 
-The following standard Python libraries have been "micro-ified" to fit in with
-the philosophy of MicroPython.  They provide the core functionality of that
-module and are intended to be a drop-in replacement for the standard Python
-library.  Some modules below use a standard Python name, but prefixed with "u",
-e.g. ``ujson`` instead of ``json``. This is to signify that such a module is
-micro-library, i.e. implements only a subset of CPython module functionality.
-By naming them differently, a user has a choice to write a Python-level module
-to extend functionality for better compatibility with CPython (indeed, this is
-what done by the `micropython-lib` project mentioned above).
+标准的Python库被 “微型化”后，就是micropython标准库。它们仅仅提供了该模块的核心功能。一些模块没有直接使用标准的Python的名字，而是冠以"u"，例如``ujson``代替``json``。也就是说micropython标准库（=微型库），只实现了一部分模块功能。通过他们的名字不同，用户有选择的去写一个Python级模块扩展功能，也是为实现更好的兼容性。
 
-On some embedded platforms, where it may be cumbersome to add Python-level
-wrapper modules to achieve naming compatibility with CPython, micro-modules
-are available both by their u-name, and also by their non-u-name.  The
-non-u-name can be overridden by a file of that name in your library path (``sys.path``).
-For example, ``import json`` will first search for a file ``json.py`` (or package
-directory ``json``) and load that module if it is found.  If nothing is found,
-it will fallback to loading the built-in ``ujson`` module.
+在嵌入式平台上，可添加Python级别封装库从而实现命名兼容CPython，微模块即可调用他们的u-name，也可以调用non-u-name。根据non-u-name包路径的文件可重写。
+
+例如，``import json``的话，首先搜索一个``json.py``文件或``json``目录进行加载。如果没有找到，它回退到加载内置``ujson``模块。
 
 .. toctree::
    :maxdepth: 1
@@ -97,11 +69,10 @@ it will fallback to loading the built-in ``ujson`` module.
    _thread.rst
 
 
-MicroPython-specific libraries
+MicroPython特有类库
 ------------------------------
 
-Functionality specific to the MicroPython implementation is available in
-the following libraries.
+MicroPython的特有功能如下。
 
 .. toctree::
    :maxdepth: 1
