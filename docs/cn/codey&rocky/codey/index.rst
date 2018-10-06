@@ -4,6 +4,6 @@
 =====================
 
 .. toctree::
-   :maxdepth: 1
+
    LED灯.rst
    TFT液晶屏.rst
