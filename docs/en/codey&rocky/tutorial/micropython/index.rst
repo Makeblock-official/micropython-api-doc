@@ -1,6 +1,6 @@
-.. _TPYBoardv10x-index:
+.. _tutorial_micropython_index:
 
-TPYBoard MicroPython 固件开发教程
+程小奔添加自己的python文件
 =============================================
 
 .. toctree::

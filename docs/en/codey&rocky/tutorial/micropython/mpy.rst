@@ -1,9 +1,9 @@
-.. _quickref:
+.. _tutorial_micropython_mpy:
 
-[MicroPython]TPYBoard 使用mpy-cross工具生成mpy文件
+[MicroPython]程小奔使用mpy-cross工具生成mpy文件
 ========================================================
 
-版权声明：翻译整理属于TPYBoard，转载时请以超链接形式标明文章原始出处和作者信息及本声明
+版权声明：翻译整理属于makeblock，转载时请以超链接形式标明文章原始出处和作者信息及本声明
 
 接触过Python语言的人都知道，Python可以编译成.pyc文件，它是一种二进制文件，可以提高程序的加载速度，同时
 也是一种保护源代码的有效方法。那么在micropython中，又该如何保护源程序呢？
@@ -38,13 +38,13 @@
 
 .. image::img/2.png
 
-4.在mpy-cross目录新建一下test.py文件，输入点亮LED4，用于测试。
+4.在mpy-cross目录新建一下test.py文件，输入点亮小程的LED，用于测试。
  
 .. code-block:: python
  
-   import pyb
+   import codey
 
-   pyb.LED(4).on()
+   codey.led.show(2555,255,255)
 
 5.执行编译mpy文件的命令。
 
@@ -69,13 +69,5 @@
 8.重置TPYBoard使其重新运行程序，大家就会看到LED4亮起来了。
 
 **注意：**
-如果运行时出现“ValueError: invalid .mpy file”错误的话，需要更新一下TPYboard的micropython固件(最新版本是1.9.3)。
-
-micropython官方下载地址：http://micropython.org/download
-
-DFU-USB接口烧写固件参考：http://tpyboard.com/support/reference11/302.html
-
-ST-LINK烧写固件参考：http://tpyboard.com/support/reference11/239.html
-
-虽然是进行了加密编译成了mpy文件，但是还有一些缺陷，毕竟mpy文件仍然是存放在TPFLASH或TF卡中，很容易被别人拷贝，也很有可能会被反编译出来。
-是否可以直接将Python脚本文件直接编译在固件中呢？答案显然是可以！想知道的话，点击右下角Next参考下一篇《TPYBoard Micropython 添加自定义类库》。
+如果运行时出现“ValueError: invalid .mpy file”错误的话，需要更新一下程小奔的micropython固件(最新版本是1.9.4)。
+虽然是进行了加密编译成了mpy文件，但是还有一些缺陷，毕竟mpy文件仍然是存放在 FLASH 或 TF 卡中，很容易被别人拷贝，也很有可能会被反编译出来。
