@@ -10,5 +10,5 @@
 *程小奔 典型实例*
 
 .. toctree::
-   :maxdepth: 1
+
    tutorial/micropython/index.rst
