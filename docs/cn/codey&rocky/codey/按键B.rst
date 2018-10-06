@@ -1,8 +1,8 @@
-:mod:`button_b` --- 板载按键B功能函数
+:mod:`button_b` --- 板载按键B
 =============================================
 
 .. module:: button_b
-   :synopsis: 板载按键B功能函数
+   :synopsis: 板载按键B
 
 ``button_b`` 模块的主要功能与函数
 

@@ -1,8 +1,8 @@
-:mod:`button_c` --- 板载按键C功能函数
+:mod:`button_c` --- 板载按键C
 =============================================
 
 .. module:: button_c
-   :synopsis: 板载按键C功能函数
+   :synopsis: 板载按键C
 
 ``button_c`` 模块的主要功能与函数
 

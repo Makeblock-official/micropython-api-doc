@@ -15,6 +15,7 @@
 小程的python接口API如下。
 
 .. toctree::
+   :maxdepth: 1
 
    codey/index.rst
 
@@ -24,6 +25,7 @@
 小奔的python接口API如下。
 
 .. toctree::
+   :maxdepth: 1
 
    rocky/index.rst
 
@@ -32,6 +34,7 @@
 第三方类库的python接口API如下。
 
 .. toctree::
+   :maxdepth: 1
 
    Third-party-libraries/index.rst
 
@@ -41,5 +44,6 @@
 神经元扩展模块的python接口API如下。
 
 .. toctree::
+   :maxdepth: 1
 
    neurons_modules/index.rst
