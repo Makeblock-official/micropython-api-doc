@@ -5,7 +5,7 @@
 microPython 和 python 的差异
 ====================================
 
-本章节列举了micropython与标准python相比不一致的地方。
+本章节列举了 micropython 与标准 python 相比不一致的地方。
 
 .. toctree::
     :maxdepth: 2
