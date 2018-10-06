@@ -1,4 +1,4 @@
-.. _micropython_lib:
+.. _codey_rocky_micropython_lib:
 
 程小奔的python接口
 =====================
@@ -16,7 +16,7 @@
 
 .. toctree::
 
-   driver/index.rst
+   codey/index.rst
 
 
 小奔的python接口

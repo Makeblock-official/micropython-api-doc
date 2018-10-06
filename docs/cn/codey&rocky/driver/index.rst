@@ -1,12 +1,7 @@
-.. _codey_driver:
+.. _test_driver:
 
-小奔的python接口
+小奔的python接口列表
 =====================
-
-小奔的python接口详述
-------------------------------
-
-小奔的python接口如下。
 
 .. toctree::
 
