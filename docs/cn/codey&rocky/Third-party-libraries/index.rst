@@ -1,13 +1,8 @@
-.. _codey_driver:
+.. _codey_third_party_libraries:
 
-小奔的python接口
+第三方类库的python接口列表
 =====================
-
-小奔的python接口详述
-------------------------------
-
-小奔的python接口如下。
 
 .. toctree::
 
-   TFT液晶屏.rst
+   LED灯.rst

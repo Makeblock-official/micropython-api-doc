@@ -25,7 +25,7 @@
 
 .. toctree::
 
-   driver/index.rst
+   rocky/index.rst
 
 第三方类库接口
 ------------------------------
@@ -33,7 +33,7 @@
 
 .. toctree::
 
-   driver/index.rst
+   Third-party-libraries/index.rst
 
 神经元扩展模块的python接口
 ------------------------------
@@ -42,4 +42,4 @@
 
 .. toctree::
 
-   driver/index.rst
+   neurons_modules/index.rst

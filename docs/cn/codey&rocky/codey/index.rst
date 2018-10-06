@@ -6,4 +6,4 @@
 .. toctree::
 
    LED灯.rst
-   TFT液晶屏.rst
+   音量传感器.rst
