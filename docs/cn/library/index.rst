@@ -33,7 +33,7 @@ microPython 官方类库
 除了本文档中描述的内置库之外，还有更多来自Python标准库的模块，它们可以提供更多的MicroPython
 的扩展，可以github的 `micropython-lib`找到.
 
-Python标准库和微型库
+micropython 标准库
 ---------------------------------------------
 
 标准的Python库被 “微型化”后，就是micropython标准库。它们仅仅提供了该模块的核心功能。一些模块没有直接使用标准的Python的名字，而是冠以"u"，例如``ujson``代替``json``。也就是说micropython标准库（=微型库），只实现了一部分模块功能。通过他们的名字不同，用户有选择的去写一个Python级模块扩展功能，也是为实现更好的兼容性。
@@ -69,7 +69,7 @@ Python标准库和微型库
    _thread.rst
 
 
-MicroPython特有类库
+microPython 特有类库
 ------------------------------
 
 MicroPython的特有功能如下。
