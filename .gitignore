@@ -1,0 +1,47 @@
+# Compiled Sources
+######################
+*.o
+*.a
+*.elf
+*.bin
+*.map
+*.hex
+*.dis
+*.exe
+
+# system files
+######################
+.DS_Store
+
+# Packages
+######################
+
+# Logs and Databases
+######################
+*.log
+
+# VIM Swap Files
+######################
+*.swp
+
+# Build directory
+######################
+build/
+
+# Test failure outputs
+######################
+tests/*.exp
+tests/*.out
+
+# Python cache files
+######################
+__pycache__/
+*.pyc
+
+# Customized Makefile/project overrides
+######################
+user.props
+
+# Generated rst files
+######################
+genrst/

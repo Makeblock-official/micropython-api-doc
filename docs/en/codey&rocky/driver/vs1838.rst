@@ -1,0 +1,56 @@
+:mod:`VS1838` --- 红外接收关联函数
+=============================================
+
+.. module:: VS1838
+   :synopsis: 红外接收关联函数
+
+``VS1838`` 模块的主要功能与函数
+
+功能相关函数
+----------------------
+
+.. function:: callback(self, fn)
+
+   读取函数，读取接收到的信息，输入参数fn为存储函数名
+   存储函数可以如下方式
+ 
+.. code-block:: python
+
+       def nec_cb(nec, a, c, r)
+          print(a, c, r)
+
+.. function:: necbm()
+
+   红外信号编码函数，此函数仅针对萝卜城出售的MP3遥控器重新编码，编码后按键值为a0-b4
+
+VS1838与开发板接线对应引脚：(萝卜狗板载无需外接)
+----------------------------------------------------------
+
+		+------------+---------+
+		| TPYBoard   | VS1838  |
+		+============+=========+
+		| GND        | GND     |
+		+------------+---------+
+		| VIN        | VCC     |
+		+------------+---------+
+		| X4         | OUT     |
+		+------------+---------+
+
+程序示例：
+----------
+
+.. code-block:: python
+
+  # main.py -- put your code here!
+  from necir import NecIr
+  from bm import necbm
+  from bm import nec_cb
+
+  def main():
+	nec = NecIr()
+	while True:
+		nec.callback(nec_cb)
+		if necbm():
+			print("bm=",necbm())
+
+  main()

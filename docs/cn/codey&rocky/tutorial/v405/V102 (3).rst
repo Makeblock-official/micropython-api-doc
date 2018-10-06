@@ -1,0 +1,117 @@
+[Micropython][TPBasic F103]LCD1602显示实例
+========================================================
+	原创版权归山东萝卜科技有限公司所有,转载必须以链接形式注明作者和原始出处
+
+
+	一、什么是TPBasicF103
+----------------------------------------
+
+	TPYBasicF103是由TurnipSmart公司制作的一款STM32开发板，它基于STM32F103单片机，通过USB接口进行数据传输。该开发板可在3V-10V之间的电压正常工作。
+
+	TPYBasicF103让用户可以通过C语言轻松控制微控制器的各种外设，比如LED等，读取管脚电压等等.
+
+	二、利用TPBasicF103完成LCD1602显示
+----------------------------------------------------
+
+	1、具体要求
+----------------------------------
+
+	利用TPBasicF103完成LCD1602显示
+
+	（1）学习stm32芯片I/O配置
+
+	（2）学习LCD1602显示的用法
+
+	（3）学习数据输出程序的设计方法
+
+	2、熟悉所需器件
+------------------------------
+
+	- TPBasicF103开发板一块
+
+	- 10K电位器一个
+
+	- 杜邦线22条
+
+	3、所需器件介绍
+-------------------------
+
+	将板子boot0与GND用跳线帽短接，PC0-PC7接D0-D7，PA0接E，PA1接RW，PA2接RS。Vss和K接GND,Vdd和A接5V电源。Vo接电位器中间脚，电位器其余两脚分别接5V和GND。
+
+	.. image:: http://www.tpyboard.com/ueditor/php/upload/image/20170502/1493724662218164.png
+
+	.. image:: http://www.tpyboard.com/ueditor/php/upload/image/20170502/1493724672460581.png
+
+
+	三、制作主要过程
+-----------------------------
+
+	1、制作流程
+---------------------------------
+
+	控制命令表
+
+	1602液晶模块的读写操作、屏幕和光标的操作都是通过指令编程来实现的。（说明：1为高电平、0为低电平）
+
+	指令1：清显示，指令码01H,光标复位到地址00H位置。
+
+	指令2：光标复位，光标返回到地址00H。
+
+	指令3：光标和显示模式设置I/D：光标移动方向，高电平右移，低电平左移S:屏幕上所有文字是否左移或者右移。高电平表示有效，低电平则无效。
+
+	指令4：显示开关控制。D：控制整体显示的开与关，高电平表示开显示，低电平表示关显示C：控制光标的开与关，高电平表示有光标，低电平表示无光标B：控制光标是否闪烁，高电平闪烁，低电平不闪烁。
+
+	指令5：光标或显示移位S/C：高电平时移动显示的文字，低电平时移动光标。
+
+	指令6：功能设置命令DL：高电平时为4位总线，低电平时为8位总线N：低电平时为单行显示，高电平时双行显示F:低电平时显示5x7的点阵字符，高电平时显示5x10的点阵字符。
+
+	指令7：字符发生器RAM地址设置。
+
+	指令8：DDRAM地址设置。
+
+	指令9：读忙信号和光标地址BF：为忙标志位，高电平表示忙，此时模块不能接收命令或者数据，如果为低电平表示不忙。
+
+	指令10：写数据。
+
+	指令11：读数据。
+
+	2、具体代码::
+
+		#include "stm32f10x.h"
+		#include "math.h"
+		#include "delay.h"
+		ErrorStatus HSEStartUpStatus;
+		TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+		TIM_OCInitTypeDef  TIM_OCInitStructure;
+		EXTI_InitTypeDef EXTI_InitStructure;
+		unsigned char word1[]="TPBasic f103";
+		u8 alarm_on=0;
+		/* Private function prototypes -----------------------------------------------*/
+		void RCC_Configuration(void);
+		void GPIO_Configuration(void);
+		void NVIC_Configuration(void);
+		void TIM_Configuration(void);
+		void EXTI_Configuration(void);
+		void Delay(vu32 nCount);
+		
+		void Init_LCD1602(void);
+		void w_cmd(u8 cmd);
+		
+		void w_dat(u8 dat);
+		void w_string(u8 addr_start, unsigned char *p);
+		void w_number(u8 addr_start, u8 num);
+		void w_array(u8 addr_start, unsigned char *p,u8 nn);
+		int main()
+		{
+			delay_init(8);
+		   /* System Clocks Configuration */
+		  RCC_Configuration();
+		  
+		  /* Configure the GPIO ports */
+		  GPIO_Configuration();
+		  NVIC_Configuration();
+		  TIM_Configuration();
+		  EXTI_Configuration();
+			
+		   Init_LCD1602();
+		   w_string(0x82,word1);

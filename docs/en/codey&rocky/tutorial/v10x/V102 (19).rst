@@ -1,0 +1,247 @@
+[Micropython]TPYBoard v10x 教程10 使用macroSD卡
+========================================================
+
+原创版权归山东萝卜科技有限公司所有,转载必须以链接形式注明作者和原始出处。
+
+本篇重点讲述TPYBV101板上microSD卡的操作方法。
+
+引言
+-------------------
+
+TPYBoard v10x系列开发板(以下简称TPYBoard)自带microSD卡槽，可以直接插入TF卡（支持FAT/FAT32格式）使用。
+
+
+如果不插入TF卡，系统将从内部flash启动，此时一切操作是对内部flash进行的。如修改main.py程序后，点击保存，TPYBoard的LED1会亮起，直到到LED1熄灭后，才说明写入成功，之所以有这么一段时间，是因为flash的写入要慢一点。
+
+如果插入TF卡，系统将检索TF卡内是否有boot.py和main.py等程序，如果有则执行。另外，在TF卡上进行文件修改或者保存时，LED1灯不会亮起，修改完，正常退出后，就可以按RST键看程序运行结果。
+
+另外，TPYBoard还可以做TF卡读卡器用，速度在500KB/s左右。这里我们重点来看一下TF卡的操作。
+
+TF卡路径及主要操作方法
+-----------------------------------
+
+系统分内部flash和tf卡两个路径：内部flash为//flash，TF卡的路径是//sd，这里注意区分大小写。
+
+TF的主要操作方法：
+
+**最重要open函数**
+
+::
+
+    #open(路径+文件名,读写模式) ，如 f=open('/tmp/hello','w')
+    #读写模式:r只读，r+读写，w新建(会覆盖原有文件)，a追加，b二进制文件。如:'rb','wb','r+b'等等
+    读写模式的类型有：
+    rU 或 Ua 以读方式打开, 同时提供通用换行符支持 (PEP 278)
+    w     以写方式打开，
+    a     以追加模式打开 (从 EOF 开始, 必要时创建新文件)
+    r+     以读写模式打开
+    w+     以读写模式打开 (参见 w )
+    a+     以读写模式打开 (参见 a )
+    rb     以二进制读模式打开
+    wb     以二进制写模式打开 (参见 w )
+    ab     以二进制追加模式打开 (参见 a )
+    rb+    以二进制读写模式打开 (参见 r+ )
+    wb+    以二进制读写模式打开 (参见 w+ )
+    ab+    以二进制读写模式打开 (参见 a+ )
+
+注意：（A  使用'W'，文件若存在，首先要清空，然后（重新）创建，B  使用'a'模式 ，把所有要写入文件的数据都追加到文件的末尾，即使你使用了seek（）指向文件的其他地方，如果文件不存在，将自动被创建。）
+    
+**open的主要方法**
+
+::
+
+    f.read([size]) #size未指定则返回整个文件,如果文件大小>2倍内存则有问题.f.read()读到文件尾时返回""(空字串)
+      
+    file.readline() #返回一行
+      
+    file.readline([size]) #返回包含size行的列表,size 未指定则返回全部行
+      
+    for line in f: print line #通过迭代器访问
+      
+    f.write("hello\n") #如果要写入字符串以外的数据,先将他转换为字符串.
+      
+    f.tell() #返回一个整数,表示当前文件指针的位置（就是到文件头的字节数）。
+      
+    f.seek(偏移量,[起始位置])  #用来移动文件指针，偏移量:单位:字节,可正可负，起始位置:0-文件头,默认值;1-当前位置;2-文件尾。
+      
+    f.close() #关闭文件
+
+**其它os方法**
+
+::
+
+    os.chdir(path)          #修改路径
+    os.getcwd()             #获取当前路径
+    os.listdir(dir)         #目录列表
+    os.mkdir(dir)           #创建目录
+    os.remove(path)         #删除文件
+    os.rmdir(dir)           #删除目录
+    os.rename(old_path, new_path)   #文件改名
+    os.stat(path)           #文件/目录状态，具体解释如下：
+
+.. image:: http://www.tpyboard.com/ueditor/php/upload/image/20160623/1466642004109911.jpg
+
+以下为Python中关于os.stat()输出解释：
+    
+>>> import os
+ >>> print os.stat("/root/python/zip.py")
+ (33188, 2033080, 26626L, 1, 0, 0, 864, 1297653596, 1275528102, 1292892895)
+ >>> print os.stat("/root/python/zip.py").st_mode   #权限模式
+ 33188
+ >>> print os.stat("/root/python/zip.py").st_ino   #inode number
+ 2033080
+ >>> print os.stat("/root/python/zip.py").st_dev    #device
+ 26626
+ >>> print os.stat("/root/python/zip.py").st_nlink  #number of hard links
+ 1
+ >>> print os.stat("/root/python/zip.py").st_uid    #所有用户的user id
+ 0
+ >>> print os.stat("/root/python/zip.py").st_gid    #所有用户的group id
+ 0
+ >>> print os.stat("/root/python/zip.py").st_size  #文件的大小，以位为单位
+ 864
+ >>> print os.stat("/root/python/zip.py").st_atime  #文件最后访问时间
+ 1297653596
+ >>> print os.stat("/root/python/zip.py").st_mtime  #文件最后修改时间
+ 1275528102
+ >>> print os.stat("/root/python/zip.py").st_ctime  #文件创建时间
+ 1292892895
+
+::
+
+    os.sync()#同步文件
+    os.urandom(n)#返回n个硬件产生的随机数
+        
+注意：
+
+（1）引用os库，import os
+
+（2）请不要使用中文文件名和路径名
+
+（3）文件操作后，不会立即更新到TF卡，需要从系统中安全移出磁盘后才会生效，如果不先移出磁盘，可能会丢失文件，甚至破坏TF卡上的文件系统。
+    
+实例
+----------------------------------
+
+1、向TF卡写入一个log文件，在tf卡上写入boot.py和main.py文件，修改tf卡上的main.py。
+    
+代码：
+::
+
+    #main.py
+    # main.py -- put your code here!
+      
+    import pyb
+    pyb.LED(2).on()  #打开led(2)
+    log=open('/sd/log.txt','w')  #如果无log.txt，建立log.txt，如果有，直接打开
+    for i in range(100):
+        log.write("%d ok\r\n" %i) 
+    log.close()
+    pyb.LED(2).off() #关闭led(2)
+        
+运行结果：板子通电后，可看到led2亮起，此时开始写入log.txt文件，然后len2熄灭，说明文件操作完成。结果如下：
+
+.. image:: http://www.tpyboard.com/ueditor/php/upload/image/20160623/1466642269338229.jpg
+
+2、查看文件指针位置
+    
+代码1：
+::
+
+    # main.py -- put your code here!
+    import pyb
+    log=open('/sd/log.txt','w')
+    s=log.tell()
+    print(s)
+        
+运行结果:为了便于查看结果，我们用putty进行REPL调试。保存好main.py后，在Putty中，按ctrl+D，显示结果如下：
+::
+
+    >>> 
+    PYB: sync filesystems
+    PYB: soft reboot
+    0
+    MicroPython v1.8-95-gb580958 on 2016-05-21; PYBv1.0 with STM32F405RG
+    Type "help()" for more information.
+        
+可以看出s为0，即默认在文件头。
+    
+代码2：
+::
+    
+    # main.py -- put your code here!
+      
+    import pyb
+    log=open('/sd/log.txt','w')
+    #从文件头偏移20个比特
+    log.seek(24,0)
+    s=log.tell()
+    print(s)
+
+运行结果：
+::
+
+    >>> 
+    PYB: sync filesystems
+    PYB: soft reboot
+    24
+    MicroPython v1.8-95-gb580958 on 2016-05-21; PYBv1.0 with STM32F405RG
+    Type "help()" for more information.
+   
+3、那么当移动24个字节后，再来写入时，会出现内容写到什么位置了？
+    
+为了便于观察，先在log.txt写入30个1，如图
+
+.. image:: http://www.tpyboard.com/ueditor/php/upload/image/20160623/1466642454130343.jpg
+
+代码：
+::
+
+    # main.py -- put your code here!
+      
+    import pyb
+    pyb.LED(2).on()
+    log=open('/sd/log.txt','w')
+    #for i in range(100):
+    #    log.write("%d ok\r\n" %i)
+    #log.close()
+    log.seek(24,0)
+    s=log.tell()
+    print(s)
+      
+    log.write("HH")
+      
+    log.close()
+    pyb.LED(2).off()
+        
+安全退出来，点RST看运行结果：
+
+.. image:: http://www.tpyboard.com/ueditor/php/upload/image/20160623/1466642507125721.jpg
+
+可以看出，在第24个字节写入了HH。如果这里的open里，把w改成a，结果又会是怎样？大家自己试吧。
+     
+4、判断文件是否存在，如果存在，删除文件
+    
+判断flash中某文件是否存在，最常用的方法是os.path.isfile()，然而试了一下发现，micropython中没有os.path，于是想到用try...except……的方法。考虑用os.stat()一个不存在的文件，利用OSError错误提示。
+    
+代码：
+::
+
+    # main.py -- put your code here!
+      
+    import pyb
+    ##
+    import os
+    pyb.LED(2).on()
+    ##
+    try:
+        s=os.stat('/sd/b.txt')
+        os.remove('/sd/b.txt')
+        print("Del file ok!")
+        pyb.LED(2).off()
+    except OSError:
+        pyb.LED(3).on()
+            
+运行结果：首先亮起led(2)，如果tf卡上存在文件b.txt，则删除后，LED(2)熄灭，如果不存在，LED（3）与（2）均亮起。
+    
+注意：发现如果是纯数字的文件名，好像tpyb也不认，如1.txt，运行上面的程序时，总是提示文件不存在。具体大家可以再试试。

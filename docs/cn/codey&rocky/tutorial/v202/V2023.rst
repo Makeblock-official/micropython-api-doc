@@ -1,0 +1,236 @@
+[Micropython]TPYBoard v202 利用单片机快速实现家庭智能控制平台
+=========================================================================
+
+版权声明：翻译整理属于TPYBoard，转载时请以超链接形式标明文章原始出处和作者信息及本声明
+
+0x00 前言
+----------------------
+
+一提到智能家庭，大家可能首先想到的是各种大佬级公司搞的牛逼产品，或者说是创新产品。想想就觉得很复杂，有的用工控机，有的用树莓派，还有的用arduino，不管用什么，都绕不过服务器进行控制，比如yeelink平台，腾讯的智能硬件平台等等。其实，真实实现起来，并没有想想中这么复杂，我们甚至只用一个小的单片机就能实现。
+
+0x01 单片机实现web服务器
+-------------------------------
+
+探讨用单片机来实现web服务器的文章通过baidu也能找到几篇，但比较详实的实现方法并没有找到，这里考虑有两种思路可以完成，一种是有线的lan模块，如w5500，这种模块本身就带有web服务的部分功能，使用起来比较简单，但是只能基于lan进行访问。另一种是通过stm32等单片机，配合网络模块来完成。当前我能想到的最简单的方法就是用stm32+esp8266来实现。
+
+基于第一种方法，我觉得受模块性能影响比较大，受限于模块，没有开发感。于是考虑用第二种方法。这个方法里，有人用arduino来完成，这要基于c进行编程。另外，就是考虑用micropython,这样直接可以用python来实现。这里依然使用tpyboard V202。
+
+0x02 模拟实现家庭智能家居控制平台
+----------------------------------------------
+
+因为没有想好要做一个多么复杂的实验，只是想能模拟一下效果，所有在整个的模块过程中，我选用了tpyboard v202开发板做主控制板，用一个发光二极管来模拟一个台灯（现实中，这里其实可以用一个继电器来控制其它设备的通断电），用一个直流小电机加迷你风扇叶表示模拟电风扇。整个实现还用到了一个三极管（S9014，NPN）来控制直流电机。
+
+
+0x03 硬件的搭建与连接
+------------------------------------------------------
+
+发光二极管的使用
+^^^^^^^^^^^^^^^^^^^^^^
+
+发光二极管使用比较简单，直接看它的两条“腿”,长的那个是正极，反之是负极。
+
+.. image:: images2/01.jpg
+
+直流小电机的使用方法
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: images2/02.jpg
+
+上图直流小电机中，红色框内的两个接线端A和B，无论那个接正极或负极都可以，只不过转动的方向不一样而已。本次我是用B端接入正极，正好是顺时针转动。
+
+三极管S9014（NPN）的使用方法
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: images2/03.png
+
+本次我们使用S9014的放大和开关功能，集电极接入v202的3.3V引脚，发射极接入电机某一端，通过给基极高低电平来控制发射极和集电极之间是否导通，从而控制直流电机转动或停止。
+
+下面来介绍一下接线方法
+
+.. image:: images2/14.png
+
+0x04 利用micropython实现web服务器
+----------------------------------------------
+
+首先，编辑一个main.py文件。v202 开机自启动main.py 文件。
+
+.. code-block:: python
+
+    try:
+
+        import usocket as socket
+    except:
+        import socket
+    import network
+    from machine import UART
+    from machine import Pin
+
+    led_flag=Pin(2, Pin.OUT)#esp8266模块上的小灯 高电平:灭 低电平:亮
+    led = Pin(4, Pin.OUT)#发光二极管的控制引脚
+    motor = Pin(5, Pin.OUT)#直流电机的控制引脚
+    #初始化
+    led.low()
+    motor.low()
+    led_flag.high()
+    def do_connect(ssid,pwd):
+        sta_if = network.WLAN(network.STA_IF)#STA 模式
+        sta_if.active(False)
+        if not sta_if.isconnected():#判断是否连接
+            sta_if.active(True)
+            sta_if.connect(ssid,pwd)#ssid:WIFI名称 pwd:WIFI 密码
+            while not sta_if.isconnected():
+                pass
+        if sta_if.isconnected():
+            return sta_if.ifconfig()[0]
+    def main(ip_,dev_data,login_data,name,pwd):
+
+        s = socket.socket()
+        ai = socket.getaddrinfo(ip_, 80)
+        addr = ai[0][-1]
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        s.bind(addr)
+        s.listen(5)
+        led_flag.low()
+        #s_data=login_data
+        while True:
+            res = s.accept()
+            client_s = res[0]
+            client_addr = res[1]
+            led_flag.high()
+            req =client_s.readline()
+            while True:
+                h = client_s.readline()
+                if h == b"" or h == b"\r\n":
+                    break
+                #print(h)
+                req+=(h.decode('utf-8').lower())
+            print("Request:")
+            req=req.decode('utf-8').lower().split('\r\n')
+            #http header 解析
+            req_data=req[0].lstrip().rstrip().replace(' ','')
+            print(req_data)
+            if req_data.find('favicon.ico')>-1:
+                client_s.close()
+                continue
+            else:
+                if len(req_data)<=12:
+                    #说明是第一次访问，输入login.html
+                    s_data=login_data
+                else:
+                    req_data=req_data.replace('get/?','').replace('http/1.1','')
+                    _name=req_data.find('name')
+                    _pwd=req_data.find('pwd')
+                    if _name>-1 and _pwd>-1:
+                        #判断是否是用户登录
+                        if req_data.find(name)>-1 and req_data.find(pwd)>-1:
+                            s_data=dev_data
+                            print('Login Success!')
+                        else:
+                            f=open('fail.html','r')
+                            s_data=f.read()
+                            f.close()
+                            print('Login Fail!')
+                    else:
+                        #判断是否是控制LED
+                        _index=req_data.find('led=')
+                        if _index>-1:
+                            s_data=dev_data
+                            led_val=req_data[_index+4:_index+6].lstrip().rstrip()
+                            print('led:',led_val)
+                            if led_val=='on':
+                                led.value(1)
+                            else:
+                                led.value(0)
+                        #判断是否是控制电机
+                        _index=req_data.find('motor=')
+                        if _index>-1:
+                            s_data=dev_data
+                            motor_val=req_data[_index+6:_index+8].lstrip().rstrip()
+                            print('motor_val:',motor_val)
+                            if motor_val=='on':
+                                motor.value(1)
+                            else:
+                                motor.value(0)
+                print('-----------')
+                client_s.send(s_data)
+                client_s.close()
+            led_flag.low()
+            
+    f=open('device.html','r')
+    dev_html=f.read()
+    f.close()
+    f=open('login.html','r')
+    login_html=f.read()
+    f.close()
+    f=open('info.txt','r')
+    info=f.read()
+    f.close()
+    name=info.split(',')[0].lstrip().rstrip()
+    pwd=info.split(',')[1].lstrip().rstrip()
+    print('name:',name)
+    print('pwd:',pwd)
+    myip_=do_connect('essid','pwd')#家中网络的WIFI名称和密码
+    print(myip_)
+    main(myip_,dev_html,login_html,name,pwd)
+
+
+其他文件login.html、fail.html、device.html，点击下面的下载源码进行下载。
+
+info.txt 这里是用文件存放的用户名和密码(英文逗号分隔)，前面是用户名，后面是密码。
+
+这里的用户名和密码是用来登录我们 智能家居控制平台的。
+
+admin,123456
+
+
+0x05 程序下载测试
+----------------------------------
+
+使用MicroPython File Uploader 工具，将源代码下载到v202中。
+
+工具下载地址: http://tpyboard.com/download/tool/170.html
+
+- 1、使用usb数据线将v202接入到电脑，打开设备管理器，查看加载的端口。我的是COM44
+
+.. image:: images2/04.png
+
+※如果驱动安装失败，可以下载CH340的驱动，手动安装。
+
+CH340驱动下载地址：http://tpyboard.com/download/drive/163.html
+
+打开MicroPython File Uploader 选择端口，点击[Open]。
+
+.. image:: images2/05.png
+
+取消[Autorun]的打钩，点击红框的文件夹图标，选择源码，点击[Send]等待发送成功。
+
+.. image:: images2/06.png
+
+下载完毕后，点击[Run/Reset]就会开始执行代码。
+开始运行后，红色框内打印的是我们存放在info.txt里的用户名和密码，这个可以自定义。
+下面桃红色框内打印的是我们v202从路由器那里获取到的IP地址，只要打印了IP地址，说明就成功接入网络了。我的v202获取的IP地址是192.168.1.192。
+
+.. image:: images2/07.png
+
+到此，我们的web服务器就搭建完成了。
+
+0x06 智能家庭网络平台的使用
+-----------------------------------------
+
+1、在家庭局域网内，我们可以选用pc或者手机，通过浏览器，打开192.168.1.192 就可以看到登录界面。
+
+.. image:: images2/08.png
+
+2、默认用户名 admin 密码123456 ，大家可以通过修改info.txt 文件来进行修改。
+
+（1）输入错误的用户名和密码会进入错误界面。
+
+.. image:: images2/09.png
+
+（2） 输入正确的，进入控制平台。
+
+.. image:: images2/10.png
+
+3、接下来，我们就可以通过网页开控制灯光和小风扇了。
+
+这里，我只是做了一个实例，受时间限制，没有再做更深入的开发。大家可以自己结合自己的创意再深入去做。如果能够通过路由器给tpyboard v202设一个外网Ip，这样就可以从外网进行访问，从而完成外网对家内设备的控制。

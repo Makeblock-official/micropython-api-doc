@@ -1,0 +1,71 @@
+.. _TPYBoard_tutorial_18b20tem:
+
+[Micropython]TPYBoard F407 驱动DS18B20检测温度
+================================================
+
+实验目的
+----------------
+
+1. 学习在PC机系统中扩展简单I/O 接口的方法。
+2. 进一步学习编制数据输出程序的设计方法。  
+3. 学习DS18B20的接线方法，并利用DS18B20检测当前温度。
+
+所需元器件
+-------------------
+
+- TPYBoard F407 micropython开发板 1块
+- 数据线 1条
+- DS18b20温度传感器 1个
+- DS18B20扩展板(带驱动电路) 1个
+- 杜邦线若干
+- PuTTY调试工具
+
+.. image:: http://old.tpyboard.com/document/documents/tb407/18b20tem_0.png
+   :width: 300px
+ 
+学习DS18B20的接线方法，检测当前温度 
+------------------------------------------
+
+先看一下DS18B20针脚含义，如下图：
+  
+.. image:: http://old.tpyboard.com/ueditor/php/upload/image/20180807/1533630149265037.png
+
+将DS18B20温度传感器直接插DS18B20模块上。如图
+  
+.. image:: http://old.tpyboard.com/ueditor/php/upload/image/20180807/1533630161901981.png
+
+DS18B20扩展板的针脚与TPYBoard F407 Micropython开发板的针脚对应关系如下：
+
++------------------------+----------------+
+|  TPYBoard F407开发板   |    DS18B20     |
++========================+================+
+|     3V3                |      VDD       |
++------------------------+----------------+
+|     GND                |      GND       |
++------------------------+----------------+
+|     Y12                |      DO        |
++------------------------+----------------+
+
+源代码 
+----------------------
+
+接线OK后，将ds18b20.py和one_wire.py复制到PYBFLASH磁盘的根目录。将下面代码拷进main.py保存，等红灯熄灭后，RST开发板，用PuTTY可以看到当前的温度。
+
+
+.. image:: http://old.tpyboard.com/document/documents/tb407/18b20tem_5.png
+
+
+.. code-block:: python
+
+	import pyb
+	from pyb import Pin
+	from ds18b20 import DS18X20
+
+	DQ=DS18X20(Pin('Y12'))#DQ
+	while True:
+		tem = DQ.read_temp()
+		print(tem)
+		pyb.delay(1000)
+
+
+- `下载源码 <http://old.tpyboard.com/document/documents/tb407/18b20tem.rar>`_ 

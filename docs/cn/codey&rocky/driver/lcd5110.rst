@@ -1,0 +1,100 @@
+:mod:`LCD5110` --- 5110液晶屏关联功能函数
+=============================================
+
+.. module:: LCD5110
+   :synopsis: 5110液晶屏关联功能函数
+
+``LCD5110`` 模块的主要功能与函数
+
+功能相关函数
+----------------------
+
+.. function:: clear(self)
+
+   清屏函数，擦除屏幕上所有内容
+
+.. function:: reset(self)
+
+   复位函数，复位LCD5110
+
+.. function:: light_on(self)
+
+   打开背光LED
+
+.. function:: light_off(self)
+
+   关闭背光LED
+
+.. function:: lcd_write_string(self, string, x, y)
+
+   写字符串函数，string为字符串内容，x为横向地址范围0-83，y为纵向地址范围0-5
+
+.. function:: lcd_write_draw_x(self, xstart, ystart, xend, yend)
+
+   画线函数，参数分别为起点坐标x,y与终点坐标x,y
+
+.. function:: lcd_write_pictuer(self, x, y, a, b)
+
+   载图函数，将载入图片并显示出来，参数x,y为开始绘制的起点坐标，a,b为图片数组内开始的数据位置及步进量
+
+.. function:: lcd_write_hc(self, x, y, a)
+
+   写缓存函数，参数x,y为坐标值，a为数据
+   此函数用于将待显示的值存入缓存区备用
+
+.. function:: lcd_read_hc(self)
+
+  读缓存函数，读出缓存区全部缓存并送去显示，显示内容为一整屏
+
+LCD5110与开发板接线对应引脚：
+-------------------------------
+
+
+		+------------+---------+
+		| TPYBoard   | LCD5110 |
+		+============+=========+
+		| Y10        | RST     |
+		+------------+---------+
+		| Y11        | CE      |
+		+------------+---------+
+		| Y9         | DC      |
+		+------------+---------+
+		| Y12        | LIGHT   |
+		+------------+---------+
+		| X8         | DIN     |
+		+------------+---------+
+		| X6         | CLK     |
+		+------------+---------+
+		| GND        | GND     |
+		+------------+---------+
+		| 3.3V       | 3V3     |
+		+------------+---------+
+
+程序示例：
+----------
+
+.. code-block:: python
+
+  # main.py -- put your code here!
+  import pyb
+  import lcd5110
+  from pyb import SPI,Pin
+
+  def main():
+    SPI    = pyb.SPI(1) #DIN=>X8-MOSI/CLK=>X6-SCK
+    #DIN =>SPI(1).MOSI 'X8' data flow (Master out, Slave in)
+    #CLK =>SPI(1).SCK  'X6' SPI clock
+
+    RST    = pyb.Pin('Y10')
+    CE     = pyb.Pin('Y11')
+    DC     = pyb.Pin('Y9')
+    LIGHT  = pyb.Pin('Y12')
+    lcd_5110 = lcd5110.LCD5110(SPI, RST, CE, DC, LIGHT)	#设置LCD5110使用SPI1及其它功能引脚
+
+    lcd_5110.lcd_write_string('Hello Python!',0,0)
+    lcd_5110.lcd_write_string('Micropython',6,1)
+    lcd_5110.lcd_write_string('TPYBoard',12,2)
+    lcd_5110.lcd_write_string('v102',60,3)
+    lcd_5110.lcd_write_string('This is a test of LCD5110',0,4)
+  if __name__ == '__main__':
+    main()

@@ -1,0 +1,108 @@
+[Micropython]TPYBoard v202 常见问题及使用技巧
+===============================================
+
+为了大家更好的使用TPYBoardv202开发板，下面总结了在使用TPYBoardV202（简称v202）过程中的一些常见问题和使用技巧，方便以后大家更好的使用。
+
+常见问题：
+--------------------
+
+TPYBoard v202的主控模块是什么？ 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+TPYBoard v202采用ESP8266-12E/12F作为主控模块。
+
+ESP8266-12E/12F 技术参数：
+
+- Flash大小：32Mbit（4MBit）
+- 温度范围：-20～80°C
+- 天线封装：PCB
+- 工作电压：3.0～3.6V（建议3.3V）
+- 指示灯IO口：GPIO2
+- 默认波特率：115200
+
+TPYBoard v202支持什么语言开发？
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+TPYBoard v202完美支持MicroPython使用Python语言开发，同时兼容NodeMCU也可以使用Lua语言。
+
+TPYBoard v202有几个串口？
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+TPYBoard v202只有一个串口，就在丝印为[FLASH]的按键旁边。
+
+TPYBoard v202都有那么接口？
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+TPYBoard v202接口类型有：SPI接口1个、IIC接口1个、ADC接口1个、UART 接口 1个。
+
+TPYBoard v202如何使用串口？
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+源码::
+
+    from machine import UART
+    u2=UART(0,115200)#串口初始化
+    u2.readall()#读取串口全部数据
+    u2.write(‘hello’)#写入串口数据
+
+TPYBoard v202的例程资料
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+可直接访问TPYBoard的官方资料网站http://docs.tpyboard.com/zh/latest/tpyboard/tutorial/v202/
+
+使用技巧
+-----------------
+
+TPYBoard v202固件的烧写与擦除
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+如果想给v202更新固件时，请参考下面文档进行固件的烧写。
+
+http://docs.tpyboard.com/zh/latest/tpyboard/tutorial/v202/firmware/
+
+若因为一些操作或意外，导致v202不能正常工作时，可尝试重新烧写固件试试，如果不起作用的话，可以先进行擦除在烧写。
+
+擦除请参考：http://docs.tpyboard.com/zh/latest/tpyboard/tutorial/v202/firmwipe/
+
+TPYBoard v202的调试工具
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+v202通过数据线接入电脑后，会安装一个COM串口，这个可以在电脑的设备管理器中看到，如：
+
+因为在v202开发板上加载了CH340（USB转串口）芯片，所以我们只要使用一个支持串口功能终端的软件即可。本人比较推荐的调试工具是Putty。
+
+Putty下载地址:
+
+http://tpyboard.com/download/tool/3.html
+
+若有的小伙伴的电脑不能自动安装CH340驱动的话，这里提供一个下载地址，可自行进行安装。下载地址：http://tpyboard.com/download/drive/163.html
+
+Putty的使用技巧
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- 组合键 Ctrl+C 停止运行
+- 组合键 Ctrl+D 重新运行
+- 输入help(object) 可以查看相关类库对象的说明
+
+TPYBoard v202下载程序的工具
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- TPYBoard v202不像是TPYBoard v102系列的一样，可以自动在电脑上加载一个磁盘，代码文件直接拷贝到磁盘中就可以运行。
+- TPYBoard v202需要文件下载工具才能将代码下载到Flash内运行。
+- 网上比较流行有两种工具：
+
+1、ESPlorer 它是用Java开发的，使用前需要安装Java运行库，支持Windows、Linux和Mac OS多种系统平台；
+
+ESPlorer 下载地址：http://tpyboard.com/download/tool/170.html
+
+2、MicroPython File Uploader 它是用doNET开发的，只支持Windows系统平台。
+
+本人比较推荐MicroPython File Uploader，虽然他没有ESPlorer的功能强大，但它是一个小巧快速的ESP8266文件上传工具，上传文件快，同时也支持Putty中调试的功能。
+
+MicroPython File Uploader下载地址：http://tpyboard.com/download/tool/170.html
+
+TPYBoard v202串口使用的一些问题总结
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- MicroPython官方固件中除了v1.8.3版本外，其余版本的固件都能正常使用串口。
+- ESP8266-12E上只有一个串口，主要功能是进行调试和文件的上传和下载。如果你在程序中使用串口接入外设通信时，需先将与外设之前的连接断开，才能对v202进行调试或文件上传的工作。
