@@ -82,8 +82,8 @@ source_suffix = '.rst'
 master_doc = micropy_port + '_' + 'index'
 
 # General information about the project.
-project = 'MicroPython makeblock'
-copyright = '2014-2018, Damien P. George, Paul Sokolovsky, TPYBoard, Makelock and contributors'
+project = 'makeblock micropython docs'
+copyright = '2014-2018, Damien P. George, Paul Sokolovsky, Makelock and contributors'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
