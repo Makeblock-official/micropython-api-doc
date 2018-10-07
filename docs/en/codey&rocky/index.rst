@@ -1,4 +1,4 @@
-.. _micropython_lib:
+.. _codey_rocky_micropython_lib:
 
 程小奔的python接口
 =====================
@@ -12,35 +12,38 @@
 
 小程的python接口
 ---------------------------------------------
-.. toctree::
-   :maxdepth: 1
+小程的python接口API如下。
 
-   driver/index.rst
+.. toctree::
+   :maxdepth: 2
+
+   codey/index.rst
 
 
 小奔的python接口
 ------------------------------
-
-MicroPython的特有功能如下。
+小奔的python接口API如下。
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   driver/index.rst
+   rocky/index.rst
 
 第三方类库接口
 ------------------------------
-.. toctree::
-   :maxdepth: 1
+第三方类库的python接口API如下。
 
-   driver/index.rst
+.. toctree::
+   :maxdepth: 2
+
+   Third-party-libraries/index.rst
 
 神经元扩展模块的python接口
 ------------------------------
 
-MicroPython的特有功能如下。
+神经元扩展模块的python接口API如下。
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   driver/index.rst
+   neurons_modules/index.rst

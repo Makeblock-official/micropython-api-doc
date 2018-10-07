@@ -212,13 +212,8 @@ Miscellaneous functions
 
 .. function:: mount(device, mountpoint, \*, readonly=False, mkfs=False)
 
-   .. note:: This function is deprecated. Mounting and unmounting devices should
-      be performed by :meth:`uos.mount` and :meth:`uos.umount` instead.
-
    Mount a block device and make it available as part of the filesystem.
-   ``device`` must be an object that provides the block protocol. (The
-   following is also deprecated. See :class:`uos.AbstractBlockDev` for the
-   correct way to create a block device.)
+   ``device`` must be an object that provides the block protocol:
 
     - ``readblocks(self, blocknum, buf)``
     - ``writeblocks(self, blocknum, buf)`` (optional)
@@ -242,6 +237,9 @@ Miscellaneous functions
 
    If ``mkfs`` is ``True``, then a new filesystem is created if one does not
    already exist.
+
+   To unmount a device, pass ``None`` as the device and the mount location
+   as ``mountpoint``.
 
 .. function:: repl_uart(uart)
 
