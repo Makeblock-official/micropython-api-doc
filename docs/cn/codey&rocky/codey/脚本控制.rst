@@ -1,0 +1,55 @@
+:mod:`codey_script_control` --- 脚本/线程控制
+=============================================
+
+.. module:: codey_script_control
+   :synopsis: 脚本/线程控制
+
+``codey_script_control`` 模块的主要功能与函数(因为是系统函数，所以使用时不需要带模块名称)
+
+功能相关函数
+----------------------
+
+.. function:: stop_this_script()
+
+   停止当前脚本，和scratch停止脚本功能一致。
+
+.. function:: stop_other_scripts()
+
+   停止其他脚本，和scratch停止其他脚本功能一致。
+
+.. function:: stop_this_script()
+
+   停止所有脚本，和scratch停止所有脚本功能一致。
+
+程序示例：
+----------------------
+
+.. code-block:: python
+
+  import codey
+  import time
+  import event
+  
+  @event.start
+  def start_cb():
+      while True:
+          print("start cb executing...")
+          time.sleep(1)
+          print("stop this script")
+          codey.stop_this_script()
+  
+  @event.button_a_pressed
+  def button_a_cb():
+      codey.stop_other_scripts()
+      while True:
+          print("button a event")
+  
+  @event.button_b_pressed
+  def button_b_cb():
+      codey.stop_other_scripts()
+      while True:
+          print("button b event")
+  
+  @event.button_c_pressed
+  def button_c_cb():
+      codey.stop_all_scripts()  
