@@ -19,48 +19,48 @@
 
    - *file_name* 字符串类型，烧录在程小奔flash中的wav格式的音频文件名，输入时，也可省略格式名 ``.wav``。
      可选择的音效文件有：
-     |``hello.wav``： hello（哈喽）
-     |``hi.wav``： hi（嗨）
-     |``bye.wav``： bye（拜）
-     |``yeah.wav``： yeah（耶）
-     |``wow.wav``： wow（哇哦）
-     |``laugh.wav``： laugh（笑声）
-     |``hum.wav``： hum（哼唱）
-     |``sad.wav``： sad（难过）
-     |``sigh.wav``： sigh（叹气）
-     |``annoyed.wav``： annoyed（哼）
-     |``angry.wav``： angry（生气）
-     |``surprised.wav``： scared（惊吓）
-     |``yummy.wav``： pettish（撒娇）
-     |``curious.wav``： curious（好奇）
-     |``embarrassed.wav``： embarrassed（尴尬）
-     |``ready.wav``： ready（准备）
-     |``sprint.wav``： sprint（冲刺）
-     |``sleepy.wav``： snore（打呼）
-     |``meow.wav``： meow(喵)
-     |``start.wav``： start（启动）
-     |``switch.wav``： switch（开关）
-     |``beeps.wav``： beeps（哔哔）
-     |``buzzing.wav``： buzz（蜂鸣）
-     |``exhaust.wav``： air-out（排气）
-     |``explosion.wav``： explosion（爆炸）
-     |``gotcha.wav``： gotcha（获取）
-     |``hurt.wav``： painful（痛苦）
-     |``jump.wav``： jump（跳动）
-     |``laser.wav``： laser（激光）
-     |``level up.wav``： level-up（升级）
-     |``low energy.wav``： low-energy（低能量）
-     |``metal clash.wav``： metal-clash（金属音）
-     |``prompt tone.wav``： prompt-tone（提示）
-     |``right.wav``： right（正确）
-     |``wrong.wav``： wrong（错误）
-     |``ring.wav``： ringtone（铃声）
-     |``score.wav``： score（得分）
-     |``shot.wav``： shot（发射）
-     |``step_1.wav``： step_1（脚步声1）
-     |``step_2.wav``： step_2（脚步声2）
-     |``wake.wav``： activate（激活）
-     |``warning.wav``： warning（警告）
+     | ``hello.wav``： hello（哈喽）
+     | ``hi.wav``： hi（嗨）
+     | ``bye.wav``： bye（拜）
+     | ``yeah.wav``： yeah（耶）
+     | ``wow.wav``： wow（哇哦）
+     | ``laugh.wav``： laugh（笑声）
+     | ``hum.wav``： hum（哼唱）
+     | ``sad.wav``： sad（难过）
+     | ``sigh.wav``： sigh（叹气）
+     | ``annoyed.wav``： annoyed（哼）
+     | ``angry.wav``： angry（生气）
+     | ``surprised.wav``： scared（惊吓）
+     | ``yummy.wav``： pettish（撒娇）
+     | ``curious.wav``： curious（好奇）
+     | ``embarrassed.wav``： embarrassed（尴尬）
+     | ``ready.wav``： ready（准备）
+     | ``sprint.wav``： sprint（冲刺）
+     | ``sleepy.wav``： snore（打呼）
+     | ``meow.wav``： meow(喵)
+     | ``start.wav``： start（启动）
+     | ``switch.wav``： switch（开关）
+     | ``beeps.wav``： beeps（哔哔）
+     | ``buzzing.wav``： buzz（蜂鸣）
+     | ``exhaust.wav``： air-out（排气）
+     | ``explosion.wav``： explosion（爆炸）
+     | ``gotcha.wav``： gotcha（获取）
+     | ``hurt.wav``： painful（痛苦）
+     | ``jump.wav``： jump（跳动）
+     | ``laser.wav``： laser（激光）
+     | ``level up.wav``： level-up（升级）
+     | ``low energy.wav``： low-energy（低能量）
+     | ``metal clash.wav``： metal-clash（金属音）
+     | ``prompt tone.wav``： prompt-tone（提示）
+     | ``right.wav``： right（正确）
+     | ``wrong.wav``： wrong（错误）
+     | ``ring.wav``： ringtone（铃声）
+     | ``score.wav``： score（得分）
+     | ``shot.wav``： shot（发射）
+     | ``step_1.wav``： step_1（脚步声1）
+     | ``step_2.wav``： step_2（脚步声2）
+     | ``wake.wav``： activate（激活）
+     | ``warning.wav``： warning（警告）
 
 .. function:: play_melody_until_done(file_name)
 
@@ -72,17 +72,17 @@
    播放音符， 数字音符定义请参考： `scratch数字音符说明 <https://en.scratch-wiki.info/wiki/Play_Note_()_for_()_Beats_(block)>`_，参数：
 
    - *note_num* 数值型，48 - 72，或者字符串类型，如"C4"。其对应表格如下：
-   |['C2','65'], ['D2','73'], ['E2','82'], ['F2','87'],
-   |['G2','98'], ['A2','110'], ['B2','123'], ['C3','131'],
-   |['D3','147'], ['E3','165'],['F3','175'],['G3','196'],
-   |['A3','220'],['B3','247'],['C4','262'],['D4','294'],
-   |['E4','330'],['F4','349'],['G4','392'],['A4','440'],
-   |['B4','494'],['C5','523'],['D5','587'],['E5','659'],
-   |['F5','698'],['G5','784'],['A5','880'],['B5','988'],
-   |['C6','1047'],['D6','1175'],['E6','1319'],['F6','1397'],
-   |['G6','1568'],['A6','1760'],['B6','1976'],['C7','2093'],
-   |['D7','2349'],['E7','2637'],['F7','2794'],['G7','3136'],
-   |['A7','3520'],['B7','3951'],['C8','4186'],['D8','4699'],
+   | ['C2','65'], ['D2','73'], ['E2','82'], ['F2','87'],
+   | ['G2','98'], ['A2','110'], ['B2','123'], ['C3','131'],
+   | ['D3','147'], ['E3','165'],['F3','175'],['G3','196'],
+   | ['A3','220'],['B3','247'],['C4','262'],['D4','294'],
+   | ['E4','330'],['F4','349'],['G4','392'],['A4','440'],
+   | ['B4','494'],['C5','523'],['D5','587'],['E5','659'],
+   | ['F5','698'],['G5','784'],['A5','880'],['B5','988'],
+   | ['C6','1047'],['D6','1175'],['E6','1319'],['F6','1397'],
+   | ['G6','1568'],['A6','1760'],['B6','1976'],['C7','2093'],
+   | ['D7','2349'],['E7','2637'],['F7','2794'],['G7','3136'],
+   | ['A7','3520'],['B7','3951'],['C8','4186'],['D8','4699'],
    - *beat* 数值数据，表示节拍数，如果不填，则一直播放。
 
 .. function:: play_tone(frequency, time = None)
