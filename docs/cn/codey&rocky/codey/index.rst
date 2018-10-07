@@ -15,3 +15,5 @@
    按键B.rst
    按键C.rst
    姿态传感器.rst
+   红外收发.rst
+   wifi.rst
