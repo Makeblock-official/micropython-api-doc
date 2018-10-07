@@ -2,10 +2,10 @@
 
 .. _cpython_diffs:
 
-microPython ºÍ python µÄ²îÒì
+microPython å’Œ python çš„å·®å¼‚
 ====================================
 
-±¾ÕÂ½ÚÁÐ¾ÙÁË microPython Óë±ê×¼ python Ïà±È²»Ò»ÖÂµÄµØ·½¡£
+microPython ä¸Žæ ‡å‡† python ç›¸æ¯”ä¸ä¸€è‡´çš„åœ°æ–¹
 
 .. toctree::
     :maxdepth: 2
