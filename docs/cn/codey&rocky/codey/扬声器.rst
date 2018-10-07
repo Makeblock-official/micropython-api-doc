@@ -18,51 +18,51 @@
    播放音频文件，改函数播放时，不会阻塞，但连续调用的话，后一次播放操作会停止前一次的播放，参数：
 
    - *file_name* 字符串类型，烧录在程小奔flash中的wav格式的音频文件名，输入时，也可省略格式名 ``.wav``。
+     可选择的音效文件有
+::
 
-     可选择的音效文件有::
-
-     hello.wav ： hello（哈喽）
-     hi.wav ： hi（嗨）
-     bye.wav ： bye（拜）
-     yeah.wav ： yeah（耶）
-     wow.wav ： wow（哇哦）
-     laugh.wav ： laugh（笑声）
-     hum.wav ： hum（哼唱）
-     sad.wav ： sad（难过）
-     sigh.wav ： sigh（叹气）
-     annoyed.wav ： annoyed（哼）
-     angry.wav ： angry（生气）
-     surprised.wav ： scared（惊吓）
-     yummy.wav ： pettish（撒娇）
-     curious.wav ： curious（好奇）
+     hello.wav       ： hello（哈喽）
+     hi.wav          ： hi（嗨）
+     bye.wav         ： bye（拜）
+     yeah.wav        ： yeah（耶）
+     wow.wav         ： wow（哇哦）
+     laugh.wav       ： laugh（笑声）
+     hum.wav         ： hum（哼唱）
+     sad.wav         ： sad（难过）
+     sigh.wav        ： sigh（叹气）
+     annoyed.wav     ： annoyed（哼）
+     angry.wav       ： angry（生气）
+     surprised.wav   ： scared（惊吓）
+     yummy.wav       ： pettish（撒娇）
+     curious.wav     ： curious（好奇）
      embarrassed.wav ： embarrassed（尴尬）
-     ready.wav ： ready（准备）
-     sprint.wav ： sprint（冲刺）
-     sleepy.wav ： snore（打呼）
-     meow.wav ： meow(喵)
-     start.wav ： start（启动）
-     switch.wav ： switch（开关）
-     beeps.wav ： beeps（哔哔）
-     buzzing.wav ： buzz（蜂鸣）
-     exhaust.wav ： air-out（排气）
-     explosion.wav ： explosion（爆炸）
-     gotcha.wav ： gotcha（获取）
-     hurt.wav ： painful（痛苦）
-     jump.wav ： jump（跳动）
-     laser.wav ： laser（激光）
-     level up.wav ： level-up（升级）
-     low energy.wav ： low-energy（低能量）
+     ready.wav       ： ready（准备）
+     sprint.wav      ： sprint（冲刺）
+     sleepy.wav      ： snore（打呼）
+     meow.wav        ： meow(喵)
+     start.wav       ： start（启动）
+     switch.wav      ： switch（开关）
+     beeps.wav       ： beeps（哔哔）
+     buzzing.wav     ： buzz（蜂鸣）
+     exhaust.wav     ： air-out（排气）
+     explosion.wav   ： explosion（爆炸）
+     gotcha.wav      ： gotcha（获取）
+     hurt.wav        ： painful（痛苦）
+     jump.wav        ： jump（跳动）
+     laser.wav       ： laser（激光）
+     level up.wav    ： level-up（升级）
+     low energy.wav  ： low-energy（低能量）
      metal clash.wav ： metal-clash（金属音）
      prompt tone.wav ： prompt-tone（提示）
-     right.wav ： right（正确）
-     wrong.wav ： wrong（错误）
-     ring.wav ： ringtone（铃声）
-     score.wav ： score（得分）
-     shot.wav ： shot（发射）
-     step_1.wav ： step_1（脚步声1）
-     step_2.wav ： step_2（脚步声2）
-     wake.wav ： activate（激活）
-     warning.wav ： warning（警告）
+     right.wav       ： right（正确）
+     wrong.wav       ： wrong（错误）
+     ring.wav        ： ringtone（铃声）
+     score.wav       ： score（得分）
+     shot.wav        ： shot（发射）
+     step_1.wav      ： step_1（脚步声1）
+     step_2.wav      ： step_2（脚步声2）
+     wake.wav        ： activate（激活）
+     warning.wav     ： warning（警告）
 
 .. function:: play_melody_until_done(file_name)
 

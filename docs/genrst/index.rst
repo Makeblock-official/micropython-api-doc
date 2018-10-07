@@ -2,10 +2,10 @@
 
 .. _cpython_diffs:
 
-microPython 和 python 的差异
+MicroPython differences from CPython
 ====================================
 
-本章节列举了 micropython 与标准 python 相比不一致的地方。
+The operations listed in this section produce conflicting results in MicroPython when compared to standard Python.
 
 .. toctree::
     :maxdepth: 2
