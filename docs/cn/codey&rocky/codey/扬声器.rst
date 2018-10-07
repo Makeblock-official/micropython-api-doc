@@ -69,7 +69,7 @@
 
 .. function:: play_note(note_num, beat = None)
 
-   播放音符， 数字音符定义请参考： `scratch数字音符说明 <https://en.scratch-wiki.info/wiki/Play_Note_()_for_()_Beats_(block)>`_.，参数：
+   播放音符， 数字音符定义请参考： `scratch数字音符说明 <https://en.scratch-wiki.info/wiki/Play_Note_()_for_()_Beats_(block)>`_，参数：
 
    - *note_num* 数值型，48 - 72，或者字符串类型，如"C4"。其对应表格如下：
    |['C2','65'], ['D2','73'], ['E2','82'], ['F2','87'],
