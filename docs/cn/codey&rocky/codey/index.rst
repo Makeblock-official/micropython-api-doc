@@ -7,6 +7,7 @@
 
    LED灯.rst
    表情面板.rst
+   扬声器.rst
    音量传感器.rst
    光线传感器.rst
    电位器旋钮.rst
