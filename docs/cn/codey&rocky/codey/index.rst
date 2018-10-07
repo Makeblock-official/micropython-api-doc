@@ -14,3 +14,4 @@
    按键A.rst
    按键B.rst
    按键C.rst
+   姿态传感器.rst
