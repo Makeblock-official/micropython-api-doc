@@ -100,7 +100,7 @@
 
    停止节拍，参数：
 
-   - *number* 数值数据，暂停的节拍数，其数值范围是 ``0 ~  数值范围极限``。
+   - *number* 数值数据，暂停的节拍数，其数值范围是 ``0 ~ 数值范围极限``。
 
 常量
 ----------------------
@@ -112,7 +112,7 @@
 
 .. data:: speaker.tempo
 
-   数值数据，表示播放速度的属性，其单位是bmp(beat per minute)，即每一个节拍的长度。  ``6 ~ 600``。 默认数值是60，即一个节拍的维持时间是1秒。
+   数值数据，表示播放速度的属性，单位是bmp(beat per minute)，即每一个节拍的长度。  其数值范围是 ``6 ~ 600``。 默认数值是60，即一个节拍的维持时间是1秒。
    ``rest`` 和 ``play_note`` 函数的节拍会受该常量影响。
 
 程序示例：
@@ -121,9 +121,29 @@
 .. code-block:: python
 
   import codey
+  import time
   
-  def loop():
-      while True:
-          if codey.button_c.is_pressed():
-              print("button C is pressed")
-  loop()
+  codey.speaker.play_melody("hello", True)
+  codey.display.show("hello")
+  codey.display.clear()
+  
+  codey.speaker.play_note(48, 1)
+  codey.speaker.rest(1)
+  codey.display.show("note")
+  codey.display.clear()
+  codey.speaker.play_note("C4", 1)
+  codey.speaker.rest(1)
+  codey.display.show("C4")
+  codey.display.clear()
+  codey.speaker.play_tone(1000, 2)
+  codey.speaker.rest(1)
+  codey.display.show("tone")
+  codey.display.clear()
+  print("tempo:", end = "")
+  print(codey.speaker.tempo)
+  codey.speaker.play_note("C4", 1)
+  codey.speaker.rest(1)
+  codey.speaker.tempo = 120
+  codey.speaker.volume = 20
+  codey.speaker.play_note("C4", 1)
+  codey.speaker.rest(1)
