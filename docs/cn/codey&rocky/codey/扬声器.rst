@@ -19,92 +19,93 @@
 
    - *file_name* 字符串类型，烧录在程小奔flash中的wav格式的音频文件名，输入时，也可省略格式名 ``.wav``。
      可选择的音效文件有：
+
+     +------------+-------------+
+     | 音频文件    | 音效        |
+     +============+=============+
+     |hello.wav   |hello（哈喽） |
+     +------------+-------------+
+     |hi.wav      |hi（嗨）      |
+     +------------+-------------+
+     |bye.wav     |bye（拜）|
      +------------+------------+
-     | 音频文件   | 音效        |
-     +============+============+
-     |``hello.wav``       | hello（哈喽）|
+     |yeah.wav    |yeah（耶）|
      +------------+------------+
-     |``hi.wav``          | hi（嗨）|
+     |wow.wav     |wow（哇哦）|
      +------------+------------+
-     |``bye.wav``         | bye（拜）|
+     |laugh.wav   |laugh（笑声）|
      +------------+------------+
-     |``yeah.wav``        | yeah（耶）|
+     |hum.wav     |hum（哼唱）|
      +------------+------------+
-     |``wow.wav``         | wow（哇哦）|
+     |sad.wav     |sad（难过）|
      +------------+------------+
-     |``laugh.wav``       | laugh（笑声）|
+     |sigh.wav    |sigh（叹气）|
      +------------+------------+
-     |``hum.wav``         | hum（哼唱）|
+     |annoyed.wav |annoyed（哼）|
      +------------+------------+
-     |``sad.wav``         | sad（难过）|
+     |angry.wav   |angry（生气）|
      +------------+------------+
-     |``sigh.wav``        | sigh（叹气）|
+     |surprised.wav|scared（惊吓）|
      +------------+------------+
-     |``annoyed.wav``     | annoyed（哼）|
+     |yummy.wav   |pettish（撒娇）|
      +------------+------------+
-     |``angry.wav``       | angry（生气）|
+     |curious.wav |curious（好奇）|
      +------------+------------+
-     |``surprised.wav``   | scared（惊吓）|
+     |embarrassed.wav|embarrassed（尴尬）|
      +------------+------------+
-     |``yummy.wav``       | pettish（撒娇）|
+     |ready.wav   |ready（准备）|
      +------------+------------+
-     |``curious.wav``     | curious（好奇）|
+     |sprint.wav  |sprint（冲刺）|
      +------------+------------+
-     |``embarrassed.wav`` | embarrassed（尴尬）|
+     |sleepy.wav  |snore（打呼）|
      +------------+------------+
-     |``ready.wav``       | ready（准备）|
+     |meow.wav    |meow(喵)|
      +------------+------------+
-     |``sprint.wav``      | sprint（冲刺）|
+     |start.wav   |start（启动）|
      +------------+------------+
-     |``sleepy.wav``      | snore（打呼）|
+     |switch.wav  |switch（开关）|
      +------------+------------+
-     |``meow.wav``        | meow(喵)|
+     |beeps.wav   |beeps（哔哔）|
      +------------+------------+
-     |``start.wav``       | start（启动）|
+     |buzzing.wav |buzz（蜂鸣）|
      +------------+------------+
-     |``switch.wav``      | switch（开关）|
+     |exhaust.wav |air-out（排气）|
      +------------+------------+
-     |``beeps.wav``       | beeps（哔哔）|
+     |explosion.wav|explosion（爆炸）|
      +------------+------------+
-     |``buzzing.wav``     | buzz（蜂鸣）|
+     |gotcha.wav  |gotcha（获取）|
      +------------+------------+
-     |``exhaust.wav``     | air-out（排气）|
+     |hurt.wav    |painful（痛苦）|
      +------------+------------+
-     |``explosion.wav``   | explosion（爆炸）|
+     |jump.wav    |jump（跳动）|
      +------------+------------+
-     |``gotcha.wav``      | gotcha（获取）|
+     |laser.wav   |laser（激光）|
      +------------+------------+
-     |``hurt.wav``        | painful（痛苦）|
+     |level up.wav|level-up（升级）|
      +------------+------------+
-     |``jump.wav``        | jump（跳动）|
+     |low energy.wav|low-energy（低能量）|
      +------------+------------+
-     |``laser.wav``       | laser（激光）|
+     |metal clash.wav|metal-clash（金属音）|
      +------------+------------+
-     |``level up.wav``    | level-up（升级）|
+     |prompt tone.wav|prompt-tone（提示）|
      +------------+------------+
-     |``low energy.wav``  | low-energy（低能量）|
+     |right.wav   |right（正确）|
      +------------+------------+
-     |``metal clash.wav`` | metal-clash（金属音）|
+     |wrong.wav   |wrong（错误）|
      +------------+------------+
-     |``prompt tone.wav`` | prompt-tone（提示）|
+     |ring.wav    |ringtone（铃声）|
      +------------+------------+
-     |``right.wav``       | right（正确）|
+     |score.wav   |score（得分）|
      +------------+------------+
-     |``wrong.wav``       | wrong（错误）|
+     |shot.wav    |shot（发射）|
      +------------+------------+
-     |``ring.wav``        | ringtone（铃声）|
+     |step_1.wav  |step_1（脚步声1）|
      +------------+------------+
-     |``score.wav``       | score（得分）|
+     |step_2.wav  |step_2（脚步声2）|
      +------------+------------+
-     |``shot.wav``        | shot（发射）|
+     |wake.wav    |activate（激活）|
      +------------+------------+
-     |``step_1.wav``      | step_1（脚步声1）|
-     +------------+------------+
-     |``step_2.wav``      | step_2（脚步声2）|
-     +------------+------------+
-     |``wake.wav``        | activate（激活）|
-     +------------+------------+
-     |``warning.wav``     | warning（警告）|
+     |warning.wav |warning（警告）|
      +------------+------------+
 
 .. function:: play_melody_until_done(file_name)
@@ -117,6 +118,7 @@
    播放音符， 数字音符定义请参考： `scratch数字音符说明 <https://en.scratch-wiki.info/wiki/Play_Note_()_for_()_Beats_(block)>`_.，参数：
 
    - *note_num* 数值型，48 - 72，或者字符串类型，如"C4"。节拍与播放频率的对应表格如下：
+
    +-------------+-------------+-------------+-------------+
    | ['C2','65'] | ['D2','73'] | ['E2','82'] | ['F2','87'] |
    +-------------+-------------+-------------+-------------+
