@@ -19,6 +19,19 @@
 
    - *file_name* 字符串类型，烧录在程小奔flash中的wav格式的音频文件名，输入时，也可省略格式名 ``.wav``。
      可选择的音效文件有：
+     
+     Simple table:
+
+      =====  =====  ====== 
+      Inputs     Output 
+      ------------  ------ 
+      A      B     A or B 
+     =====  =====  ====== 
+     False  False  False 
+     True   False  True 
+     False  True   True 
+     True   True   True 
+      =====  =====  ======
 
      +------------+-------------+
      | 音频文件    | 音效        |
