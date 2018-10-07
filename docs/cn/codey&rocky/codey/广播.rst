@@ -1,7 +1,7 @@
 :mod:`codey_broadcast` --- 广播模块
 =============================================
 
-.. module:: codey_broadcast
+.. module:: codey
    :synopsis: 广播模块
 
 ``codey_broadcast`` 模块的主要功能与函数(因为是系统函数，所以使用时不需要带模块名称)
