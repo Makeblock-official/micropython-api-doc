@@ -58,7 +58,6 @@
   import time
   import neurons
   
-  
   codey.display.show("hello")
   
   neurons.buzzer.play_note(48, 1)
