@@ -1,44 +1,20 @@
-:mod:`led` --- 板载全彩LED灯
+:mod:`servo_driver` --- 双舵机驱动模块
 =============================================
 
-.. module:: led
-   :synopsis: 板载全彩LED灯
+.. module:: servo_driver
+   :synopsis: 双舵机驱动模块
 
-``LED`` 模块的主要功能与函数
+``servo_driver`` 模块的主要功能与函数
 
 功能相关函数
 ----------------------
 
-.. function:: show(r,g,b)
+.. function:: set_angle(position, ch = 0)
 
-   设置并显示RGB LED灯的颜色, 参数：
+   设置双路直流电机各路电机的动力，参数：
 
-  - *r* 全彩LED红色分量的数值，参数范围是 ``0 ~ 255``， 0为无红色分量，255是红色分量最亮。
-  - *g* 全彩LED绿色分量的数值，参数范围是 ``0 ~ 255``， 0为无绿色分量，255是绿色分量最亮。
-  - *b* 全彩LED蓝色分量的数值，参数范围是 ``0 ~ 255``， 0为无蓝色分量，255是蓝色分量最亮。
-
-
-.. function:: set_red(val)
-
-    设置 RGB LED灯的红色色值，参数：
-
-    - *val* 全彩LED红色分量的数值，参数范围是 ``0 ~ 255``， 0为无红色分量，255是红色分量最亮。
-
-.. function:: set_green(val)
-
-    设置 RGB LED灯的绿色色值，参数：
-
-    - *val* 全彩LED绿色分量的数值，参数范围是 ``0 ~ 255``， 0为无绿色分量，255是绿色分量最亮。
- 
-.. function:: set_blue(val)
-
-    设置 RGB LED灯的蓝色色值，参数：
-
-    - *val* 全彩LED红色分量的数值，参数范围是 ``0 ~ 255``， 0为无蓝色分量，255是蓝色分量最亮。
- 
-.. function:: off()
-
-    熄灭LED灯
+   - *position* 控制目标的转动角度，参数范围是 ``0 ~ 180``。
+   - *ch* 控制的舵机通道，参数范围是 ``0 ~ 2``，其中0表示两路舵机通道，1表示插槽1通道，2表示插槽2通道。
 
 程序示例：
 ------------
@@ -46,18 +22,24 @@
 .. code-block:: python
 
   import codey
+  import neurons
+  import event
   import time
- 
-  codey.led.show(2555,255,255)
-  time.sleep(2)
-  codey.led.off()
-  time.sleep(2)
-  while True:
-      codey.led.set_red(255)
-      time.sleep(1)
-      codey.led.set_green(255)
-      time.sleep(1)
-      codey.led.set_blue(255)
-      time.sleep(1)
-      codey.led.off()
-      time.sleep(1)
+  
+  neurons.servo_driver.set_angle(0, 0)
+  time.sleep(1)
+  
+  @event.button_a_pressed
+  def on_button_a_pressed():
+      print("button a event successed")
+      neurons.servo_driver.set_angle(100, 1)
+  
+  @event.button_b_pressed
+  def on_button_b_pressed():
+      print("button b event successed")
+      neurons.servo_driver.set_angle(100, 2)
+  
+  @event.button_c_pressed
+  def on_button_c_pressed():
+      print("button c event successed")
+      neurons.servo_driver.set_angle(100, 0)
