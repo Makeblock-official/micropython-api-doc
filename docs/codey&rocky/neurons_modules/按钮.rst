@@ -18,7 +18,6 @@
 
 .. code-block:: python
 
-  # -*- coding: utf-8 -*-
   import codey
   import neurons
   

@@ -40,7 +40,6 @@
 
    - *axis* 字符串类型，以 ``x``，``y``，``z`` 代表陀螺仪模块定义的坐标轴。
 
-
 .. function:: get_gyroscope(axis)
 
    获取三个轴的角速度值，单位是 ``°/秒``，参数：
@@ -55,7 +54,7 @@
   import rocky
   import event
   import neurons
-
+  
   @event.button_a_pressed
   def on_button_a_callback():
       codey.stop_other_scripts()
