@@ -23,7 +23,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
 # Work out the port to generate the docs for
 from collections import OrderedDict
-micropy_port = os.getenv('MICROPY_PORT') or 'makeblock_cn'
+micropy_port = os.getenv('MICROPY_PORT') or 'makeblock_en'
 
 tags.add('port_' + micropy_port)
 ports = OrderedDict((
@@ -201,7 +201,7 @@ html_last_updated_fmt = '%d %b %Y'
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
-html_additional_pages = {"index": "topindex_cn.html"}
+html_additional_pages = {"index": "topindex_en.html"}
 
 # If false, no module index is generated.
 #html_domain_indices = True

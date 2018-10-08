@@ -5,4 +5,5 @@
 
 .. toctree::
 
-   LED灯.rst
+   移动底盘.rst
+   颜色红外传感器.rst
