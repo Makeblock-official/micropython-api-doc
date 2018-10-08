@@ -31,7 +31,7 @@
    - *url* 网络请求的URL(网址)。
    - **kw request可选的参数
 
- .. function:: post(url, **kw):
+.. function:: post(url, **kw):
 
    发送一个 POST 请求，返回类型是 request 的响应，参数：
    - *url* 网络请求的URL(网址)。
