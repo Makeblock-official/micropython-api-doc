@@ -1,89 +1,47 @@
 {% extends "defindex.html" %}
 {% block body %}
-
-  <h1>MicroPython documentation</h1>
-
-  <p>
-    {{ _('Welcome! This is the documentation for MicroPython') }}
-    v{{ release|e }}{% if last_updated %}, {{ _('last updated') }} {{ last_updated|e }}{% endif %}.
-  </p>
-
-  <p>
-    MicroPython runs on a variety of systems and hardware platforms.  Here you can read
-    the general documentation which applies to all systems, as well as specific information
-    about the various platforms -
-    also known as <a href="{{ pathto("reference/glossary") }}#term-micropython-port">ports</a>
-    - that MicroPython runs on.
-  </p>
-
-  <p><strong>General documentation for MicroPython:</strong></p>
-
-  <table class="contentstable"><tr>
-    <td width="40%" style="padding-left:2em;">
-      <p class="biglink">
-        <a class="biglink" href="{{ pathto("library/index") }}">Library Reference</a><br/>
-        <span class="linkdescr">MicroPython libraries and modules</span>
-      </p>
-      <p class="biglink">
-        <a class="biglink" href="{{ pathto("genrst/index") }}">MicroPython Differences</a><br/>
-        <span class="linkdescr">MicroPython operations which differ from CPython</span>
-      </p>
-    </td>
-    <td width="40%" style="padding-left:2em;">
-      <p class="biglink">
-        <a class="biglink" href="{{ pathto("reference/index") }}">Language Reference</a><br/>
-        <span class="linkdescr">information about MicroPython specific language features</span>
-      </p>
-      <p class="biglink">
-        <a class="biglink" href="{{ pathto("license") }}">License</a><br/>
-        <span class="linkdescr">MicroPython license information</span>
-      </p>
-    </td>
-  </tr></table>
-
-  <p><strong>References and tutorials for specific platforms:</strong></p>
-
-  <table class="contentstable"><tr>
-    <td width="40%" style="padding-left:2em;">
-      <p class="biglink">
-        <a class="biglink" href="{{ pathto("pyboard/quickref") }}">Quick reference for the pyboard</a><br/>
-        <span class="linkdescr">pinout for the pyboard, snippets of useful code, and a tutorial</span>
-      </p>
-      <p class="biglink">
-        <a class="biglink" href="{{ pathto("esp8266/quickref") }}">Quick reference for the ESP8266</a><br/>
-        <span class="linkdescr">pinout for ESP8266-based boards, snippets of useful code, and a tutorial</span>
-      </p>
-      <p class="biglink">
-        <a class="biglink" href="{{ pathto("wipy/quickref") }}">Quick reference for the WiPy/CC3200</a><br/>
-        <span class="linkdescr">pinout for the WiPy/CC3200, snippets of useful code, and a tutorial</span>
-      </p>
-    </td>
-  </tr></table>
-
-  <p><strong>Indices and tables:</strong></p>
-
-  <table class="contentstable"><tr>
-    <td width="40%" style="padding-left:2em;">
-      <p class="biglink">
-        <a class="biglink" href="{{ pathto("py-modindex") }}">Module index</a><br/>
-        <span class="linkdescr">quick access to all modules</span>
-      </p>
-      <p class="biglink">
-        <a class="biglink" href="{{ pathto("genindex") }}">Full index</a><br/>
-        <span class="linkdescr">all functions, classes, constants</span>
-      </p>
-    </td>
-    <td width="40%" style="padding-left:2em;">
-      <p class="biglink">
-        <a class="biglink" href="{{ pathto("reference/glossary") }}">Glossary</a><br/>
-        <span class="linkdescr">MicroPython terms explained</span>
-      </p>
-      <p class="biglink">
-        <a class="biglink" href="{{ pathto("index") }}">Table of contents</a><br/>
-        <span class="linkdescr">a list of all sections and subsections</span>
-      </p>
-    </td></tr>
-  </table>
+<h1>makeblock microPython documentation</h1>
+<style>
+td{
+	padding-bottom:15px;
+	
+	font-size:14px;
+}
+td a{
+	font-size:14px;
+}
+</style>
+<p style="font-size:14px;">This is the documentation for the makeblock micropython product, current version.: {{ port_version }} {{ tt }}</p>
+<p style="font-size:14px;">This document only applies to the application of the makeblock product</p>
+<p style="font-size:14px;">Main contents:</p>
+<p style="font-size:14px;">
+	<table style="width:100%;">
+		<tr>
+			<td><a class="biglink" href="{{ pathto("en/codey&rocky/index") }}">Codey&rocky python API</a><br/><br/><font style='font-size:12px; color:gray; padding-left:15px;'>Python function description for codey&rocky</font></td>
+			<td><a class="biglink" href="{{ pathto("en/codey&rocky/tutorial") }}">Tutorial for codey&rocky</a><br/><br/><font style='font-size:12px; color:gray;padding-left:15px;'>Python programming guide for codey&rocky</font></td>
+		</tr>
+		<tr>
+			<td><a class="biglink" href="{{ pathto("en/library/index") }}">Library Reference</a><br/><br/><font style='font-size:12px; color:gray;padding-left:15px;'>MicroPython libraries and modules</font></td>
+			<td><a class="biglink" href="{{ pathto("en/reference/index") }}">Language Reference</a><br/><br/><font style='font-size:12px; color:gray;padding-left:15px;'>Information about MicroPython specific language features</font></td>
+		</tr>
+		<tr>
+			<td><a class="biglink" href="{{ pathto("genrst/index") }}">MicroPython Differences</a><br/><br/><font style='font-size:12px; color:gray;padding-left:15px;'>MicroPython operations which differ from CPython</font></td>
+			<td><a class="biglink" href="{{ pathto("en/license") }}">License</a><br/><br/><font style='font-size:12px; color:gray;padding-left:15px;'>MicroPython license information</font></td>
+		</tr>
+	</table>
+</p>
+<p style="font-size:14px;">
+	<table style="width:100%;">
+		<tr>
+			<td><a class="biglink" href="{{ pathto("py-modindex") }}">Module index</a></td>
+			<td><a class="biglink" href="{{ pathto("genindex") }}">Full index</a></td>
+		</tr>
+		<tr>
+			<td><a class="biglink" href="{{ pathto("search") }}">Search page</a></td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+</p>
 
   <p><strong>External links:</strong></p>
 
@@ -91,17 +49,17 @@
     <td width="40%" style="padding-left:2em;">
       <p class="biglink">
       <a class="biglink" href="http://micropython.org">MicroPython homepage</a><br/>
-        <span class="linkdescr">the official MicroPython site</span>
+        <span class="linkdescr">The official MicroPython site</span>
       </p>
       <p class="biglink">
-        <a class="biglink" href="http://forum.micropython.org">MicroPython forum</a><br/>
-        <span class="linkdescr">community discussion for all things related to MicroPython</span>
+        <a class="biglink" href="https://www.makeblock.com/">Makeblock homepage</a><br/>
+        <span class="linkdescr">The official site for Makeblock Co., Ltd.</span>
       </p>
     </td>
     <td width="40%" style="padding-left:2em;">
       <p class="biglink">
-        <a class="biglink" href="https://gitee.com/makeblockcc/micropython-api-doc">MicroPython Doc on gitee</a><br/>
-        <span class="linkdescr">contribute the source code on gitee</span>
+        <a class="biglink" href="https://gitee.com/makeblockcc/micropython-api-doc">Source code of this document</a><br/>
+        <span class="linkdescr">This document's source link on github. Any comments can be submitted to us on it.</span>
       </p>
     </td>
   </tr></table>

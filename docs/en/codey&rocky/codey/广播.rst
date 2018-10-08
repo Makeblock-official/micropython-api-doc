@@ -1,0 +1,33 @@
+:mod:`codey_broadcast` --- 广播模块
+=============================================
+
+.. module:: codey
+   :synopsis: 广播模块
+
+``codey_broadcast`` 模块的主要功能与函数(因为是系统函数，所以使用时不需要带模块名称)
+
+功能相关函数
+----------------------
+
+.. function:: broadcast(str)
+
+    可以向串口，蓝牙以及自身的事件监听单元发送一个广播。参数：
+
+    - *str* 广播的内容。
+
+程序示例：
+----------------------
+
+.. code-block:: python
+
+  import codey
+  import event
+  
+  @event.button_a_pressed
+  def button_a_cb():
+      print("button a event successed")
+      codey.broadcast("hello")
+  
+  @event.received("hello")
+  def received_cb():
+      print("received message: hello")

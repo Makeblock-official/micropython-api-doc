@@ -67,6 +67,7 @@
 .. function:: play_melody_until_done(file_name)
 
    播放音频文件直到停止，该函数会阻塞播放，即在未播放完音效之前，后一条指令无法得到执行。参数：
+
    - *file_name* 字符串类型，烧录在程小奔flash中的wav格式的音频文件名，输入时，也可省略格式名 ``.wav``，具体可选参数见 ``play_melody``。
 
 .. function:: play_note(note_num, beat = None)
@@ -112,8 +113,7 @@
 
 .. data:: speaker.tempo
 
-   数值数据，表示播放速度的属性，单位是bmp(beat per minute)，即每一个节拍的长度。  其数值范围是 ``6 ~ 600``。 默认数值是60，即一个节拍的维持时间是1秒。
-   ``rest`` 和 ``play_note`` 函数的节拍会受该常量影响。
+   数值数据，表示播放速度的属性，单位是bmp(beat per minute)，即每一个节拍的长度。  其数值范围是 ``6 ~ 600``。 默认数值是60，即一个节拍的维持时间是1秒。 ``rest`` 和 ``play_note`` 函数的节拍会受该常量影响。
 
 程序示例：
 ----------------------
