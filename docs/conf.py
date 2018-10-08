@@ -27,7 +27,7 @@ micropy_port = os.getenv('MICROPY_PORT') or 'makeblock'
 
 tags.add('port_' + micropy_port)
 ports = OrderedDict((
-    ('makeblock_cn', 'makeblock microPython Docs'),
+    ('makeblock', 'makeblock microPython Docs'),
 ))
 
 
