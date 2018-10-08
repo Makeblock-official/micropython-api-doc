@@ -1,4 +1,4 @@
-MicroPython license information
+microPython 许可证信息
 ===============================
 
 The MIT License (MIT)

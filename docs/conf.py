@@ -23,12 +23,11 @@ sys.path.insert(0, os.path.abspath('.'))
 
 # Work out the port to generate the docs for
 from collections import OrderedDict
-micropy_port = os.getenv('MICROPY_PORT') or 'makeblock_cn'
+micropy_port = os.getenv('MICROPY_PORT') or 'makeblock'
 
 tags.add('port_' + micropy_port)
 ports = OrderedDict((
-    ('makeblock_cn', 'makeblock CN Doc'),
-    ('makeblock_en', 'makeblock EN Doc'),
+    ('makeblock_cn', 'makeblock microPython Docs'),
 ))
 
 
@@ -82,7 +81,7 @@ source_suffix = '.rst'
 master_doc = micropy_port + '_' + 'index'
 
 # General information about the project.
-project = 'makeblock micropython docs'
+project = 'makeblock micropython 文档说明'
 copyright = '2014-2018, Damien P. George, Paul Sokolovsky, Yan Minge and contributors'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -201,7 +200,7 @@ html_last_updated_fmt = '%d %b %Y'
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
-html_additional_pages = {"index": "topindex_cn.html"}
+html_additional_pages = {"index": "topindex.html"}
 
 # If false, no module index is generated.
 #html_domain_indices = True
