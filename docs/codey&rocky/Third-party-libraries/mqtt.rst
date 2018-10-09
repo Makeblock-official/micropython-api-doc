@@ -11,10 +11,9 @@
 
 .. class:: MQTTClient(client_id, server, port=0, user=None, password=None, keepalive=0, ssl=False, ssl_params={})
 
-   实例化MQTT客户端的接口对象，参数：
+   实例化MQTT客户端的接口对象，参数:
 
-   - *client_id* 连接到代理时使用的唯一客户端ID字符串，如果client_id为零长度或无，则将随机生成一个。
-      在这种情况下，``connect`` 的clean_session参数必须为True。
+   - *client_id* 连接到代理时使用的唯一客户端ID字符串，如果client_id为零长度或无，则将随机生成一个。在这种情况下，``connect``的clean_session参数必须为True。
    - *server* 远程服务器的主机名或IP地址。
    - *port*（可选）要连接的服务器主机的网络端口。 默认为1883，请注意，MQTT over SSL / TLS的默认端口是8883。
    - *user*（可选）在服务器上注册的用户名。
