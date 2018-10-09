@@ -6,3 +6,4 @@
 .. toctree::
 
    urequests.rst
+   mqtt.rst
