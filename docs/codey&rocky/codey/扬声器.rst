@@ -74,7 +74,7 @@
 
    播放音符， 数字音符定义请参考： `scratch数字音符说明 <https://en.scratch-wiki.info/wiki/Play_Note_()_for_()_Beats_(block)>`_，参数：
 
-   - *note_num* 数值型，48 - 72，或者字符串类型，如"C4"。
+   - *note_num* 数值型，数值范围 ``48 - 72``，或者字符串类型，如 ``C4``。
    - *beat* 数值数据，表示节拍数，如果不填，则一直播放。
      音符与频率的对应关系如下::
 
