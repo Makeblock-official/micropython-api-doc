@@ -11,7 +11,7 @@
 
 .. function:: receive()
 
-   返回红外收到的字符串信息，所以发送端发送的数据必须以 ``\n``结束。 如果是接收 NEC编码协议的遥控器指令，
+   返回红外收到的字符串信息，所以发送端发送的数据必须以 ``\n`` 结束。 如果是接收 NEC编码协议的遥控器指令，
    请使用另外一个函数 ``receive_remote_code()``。
 
 .. function:: receive_remote_code()
