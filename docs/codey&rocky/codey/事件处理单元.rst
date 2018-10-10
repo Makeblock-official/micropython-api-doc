@@ -24,7 +24,7 @@
           time.sleep(1)
   event.start(start_cb)
 
-另一种是使用修饰器的写法， 如
+另一种是使用修饰器的写法， 如：
 
 .. code-block:: python
 
@@ -46,43 +46,43 @@
 
 .. function:: start(callback)
 
-   开机启动事件
+   开机启动事件。
 
 .. function:: shaked(callback)
 
-   小程被摇晃事件
+   小程被摇晃事件。
 
 .. function:: received(callback, msgstr)
 
-   广播接收事件
+   广播接收事件。
 
 .. function:: button_a_pressed(callback)
 
-   按键A被按下事件
+   按键A被按下事件。
 
 .. function:: button_b_pressed(callback)
 
-   按键B被按下事件
+   按键B被按下事件。
 
 .. function:: button_c_pressed(callback)
 
-   按键C被按下事件
+   按键C被按下事件。
 
 .. function:: tilted_left(callback)
 
-   小程左倾斜事件
+   小程左倾斜事件。
 
 .. function:: tilted_right(callback)
 
-   小程右倾斜事件
+   小程右倾斜事件。
 
 .. function:: ears_up(callback)
 
-   小程耳朵向上事件
+   小程耳朵向上事件。
 
 .. function:: ears_down(callback)
 
-   小程耳朵向下事件
+   小程耳朵向下事件。
 
 .. function:: ir_received(callback, ir_str)
 

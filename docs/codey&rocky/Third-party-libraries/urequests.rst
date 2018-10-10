@@ -13,7 +13,7 @@
 
    发送网络请求, 它会阻塞返回网络的响应数据，参数：
 
-   - *method* 建立网络请求的方法，例如 ``HEAD``，``GET``，``POST``，``PUT``，``PATCH``,``DELETE``。
+   - *method* 建立网络请求的方法，例如 ``HEAD``，``GET``，``POST``，``PUT``，``PATCH``, ``DELETE``。
    - *url* 网络请求的URL(网址)。
    - *data*（可选）在请求正文中发送的字典或元组列表[（键，值）]（将是表单编码的），字节或类文件对象。
    - *json*（可选）在请求正文中发送的json数据。
@@ -33,28 +33,28 @@
    - *url* 网络请求的URL(网址)。
    - **kw request可选的参数
 
-.. function:: post(url, **kw):
+.. function:: post(url, **kw)
 
    发送一个 POST 请求，返回类型是 request 的响应，参数：
 
    - *url* 网络请求的URL(网址)。
    - **kw request可选的参数
 
-.. function:: put(url, **kw):
+.. function:: put(url, **kw)
 
    发送一个 PUT 请求，返回类型是 request 的响应，参数：
 
    - *url* 网络请求的URL(网址)。
    - **kw request可选的参数
 
-.. function:: patch(url, **kw):
+.. function:: patch(url, **kw)
 
    发送一个 PATCH 请求，返回类型是 request 的响应，参数：
 
    - *url* 网络请求的URL(网址)。
    - **kw request可选的参数
 
-.. function:: delete(url, **kw):
+.. function:: delete(url, **kw)
 
    发送一个 DELETE 请求，返回类型是 request 的响应，参数：
 

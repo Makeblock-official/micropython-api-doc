@@ -9,12 +9,12 @@
 功能相关函数
 ----------------------
 
-.. function:: start(ssid = "Maker-guest", password = "makeblock", mode = codey.wifi.STA)
+.. function:: start(ssid = "wifi_ssid", password = "password", mode = codey.wifi.STA)
 
-   启动wifi连接，该API不阻塞，API退出不代表wifi已连接上，需要调用wifi.is_connected()判断。参数：
+   启动wifi连接，该API不阻塞，API退出不代表wifi已连接上，需要调用 ``wifi.is_connected()`` 判断。参数：
 
   - *ssid* 字符串类型，wifi账号。
-  - *password* 字符串类型，wifi 密码。
+  - *password* 字符串类型，wifi密码。
   - *mode* 启动wifi的模式。
 
 .. function:: is_connected()
@@ -26,15 +26,15 @@
 
 .. data:: wifi.STA
 
-   WiFi的站点模式，即无线网卡模式，该模式下，wifi可以连接到路由器。
+   wifi的站点模式，即无线网卡模式，该模式下，wifi可以连接到路由器。
 
 .. data:: wifi.AP
 
-   WiFi的无线接入点模式，一般的无线路由/网桥工作在该模式，该模式下，wifi可以允许其它无线设备接入。
+   wifi的无线接入点模式，一般的无线路由/网桥工作在该模式，该模式下，wifi可以允许其它无线设备接入。
 
 .. data:: wifi.APSTA
 
-   WiFi的AP和STA模式共存。
+   wifi的AP和STA模式共存。
 
 程序示例：
 ----------------------
