@@ -47,7 +47,7 @@
   import codey
   import time
  
-  codey.led.show(2555,255,255)
+  codey.led.show(255,255,255)
   time.sleep(2)
   codey.led.off()
   time.sleep(2)

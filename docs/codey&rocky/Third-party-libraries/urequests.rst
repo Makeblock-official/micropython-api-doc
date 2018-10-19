@@ -141,7 +141,7 @@
   import urequests as requests
   import ujson
   
-  # deviceid 用户的账户信息就是mblock的账户
+  # user_account 和 password 的账户信息就是mblock的账户
   def get_user_request_header():
       post_data = ujson.dumps({ 'account': 'user_account', 'password': 'password'})
       request_url = 'http://passport2.makeblock.com/v1/user/login'
