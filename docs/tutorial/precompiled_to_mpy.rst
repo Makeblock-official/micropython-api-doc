@@ -23,15 +23,15 @@
 
 生成mpy文件
 -------------------------
-3. 执行msys32目录中的 ``mingw32.exe`` 切换到 /g/micropython/mpy-cross目录执行make，编译生成mpy-cross工具。
+3. 执行msys32目录中的 ``mingw32.exe`` 切换到 ``/g/micropython/mpy-cross`` 目录执行make，编译生成mpy-cross工具。
 
 .. code-block::
 
   make
 
-.. image::img/1.png
+.. image:: img/1.png
 
-.. image::img/2.png
+.. image:: img/2.png
 
 4. 在mpy-cross目录新建一下main.py文件，以小程为例，写一个测试程序用于验证。
  
