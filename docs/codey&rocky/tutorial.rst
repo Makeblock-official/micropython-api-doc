@@ -11,4 +11,4 @@
 
 .. toctree::
 
-   tutorial/micropython/index.rst
+   tutorial/index.rst
