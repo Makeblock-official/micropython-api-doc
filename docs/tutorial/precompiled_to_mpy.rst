@@ -11,9 +11,7 @@
 -------------------------
 
 **注意：**
-1. 在不同的系统环境以及不同的目标主板，micropython的开发环境安装是有差别的，这里仅以乐鑫esp32的mingw32工具链作为示意。
-2. 对于乐鑫的工具链，我们是需要用到它的 ``xtensa-esp32-elf``
-
+在不同的系统环境以及不同的目标主板，micropython的开发环境安装是有差别的，这里仅以乐鑫esp32的mingw32工具链作为示意。我们需要用到它的 ``xtensa-esp32-elf``
 
 1. 参考乐鑫 `设置工具链 <https://docs.espressif.com/projects/esp-idf/en/stable/get-started/#setup-toolchain>`_，以 windows系统为例，可以从乐鑫的官网下载 `Windows all-in-one工具链 & MSYS2 zip包 <https://dl.espressif.com/dl/esp32_win32_msys2_environment_and_toolchain-20180110.zip>`_，将zip文件解压缩到C盘的根目录（也可以是其他一些位置，但本文档假定为 ``C:\``  ），它将创建一个带有预先准备好的环境的msys32目录。
 
