@@ -7,5 +7,5 @@
    :maxdepth: 1
    :numbered:
 
-   mpy.rst
-   add.rst
+   ../../tutorial/add.rst
+   ../../tutorial/precompiled_to_mpy.rst
