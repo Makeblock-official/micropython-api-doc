@@ -5,7 +5,6 @@
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
 
-   ../../tutorial/add.rst
+   ../../tutorial/add_files.rst
    ../../tutorial/precompiled_to_mpy.rst

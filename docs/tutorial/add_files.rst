@@ -1,4 +1,4 @@
-.. _tutorial_micropython_add:
+.. _tutorial_micropython_add_files:
 
 [MicroPython]程小奔添加自定义类库
 ======================================
