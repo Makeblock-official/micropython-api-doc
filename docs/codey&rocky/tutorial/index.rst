@@ -1,4 +1,4 @@
-.. _tutorial_micropython_index:
+.. __codey_tutorial_micropython_index:
 
 程小奔添加自己的python文件
 =============================================
