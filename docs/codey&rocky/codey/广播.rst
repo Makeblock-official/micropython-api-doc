@@ -25,7 +25,7 @@
   
   @event.button_a_pressed
   def button_a_cb():
-      print("button a event successed")
+      print("button a event succeeded")
       codey.broadcast("hello")
   
   @event.received("hello")
