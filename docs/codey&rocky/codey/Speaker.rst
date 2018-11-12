@@ -4,7 +4,7 @@
 .. module:: speaker
     :synopsis: Onboard Speaker
 
-``speaker`` The main functionality and function of the speaker module
+The main functionality and function of the ``speaker`` module
 
 Function
 ----------------------

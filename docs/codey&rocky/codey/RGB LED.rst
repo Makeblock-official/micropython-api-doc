@@ -4,7 +4,7 @@
 .. module:: led
     :synopsis: Onboard RGB LED
 
-``led`` The main functionality and function of the led module
+The main functionality and function of the ``led`` module
 
 Function
 ----------------------

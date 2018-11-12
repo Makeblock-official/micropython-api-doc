@@ -1,19 +1,19 @@
-:mod:`button_c` --- 板载按键C
+:mod:`button_c` --- Onboard Button C
 =============================================
 
 .. module:: button_c
-   :synopsis: 板载按键C
+    :synopsis: Onboard Button C
 
-``button_c`` 模块的主要功能与函数
+The main functionality and function of the ``button_c`` module
 
-功能相关函数
+Function
 ----------------------
 
 .. function:: is_pressed()
 
-   获取按键C当前状态。 返回的结果是 ``True``：按键被按下， 或者 ``False``: 按键未被按下。
+   Get the current state of button C. The result returned is ``True``: the button is pressed, or the ``False``: button is not pressed.
 
-程序示例：
+Sample Code：
 ----------------------
 
 .. code-block:: python

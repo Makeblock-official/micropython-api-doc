@@ -1,19 +1,19 @@
-:mod:`button_a` --- 板载按键A
+:mod:`button_a` --- Onboard Button A
 =============================================
 
 .. module:: button_a
-   :synopsis: 板载按键A
+    :synopsis: Onboard Button A
 
-``button_a`` 模块的主要功能与函数
+The main functionality and function of the ``button_a`` module
 
-功能相关函数
+Function
 ----------------------
 
 .. function:: is_pressed()
 
-   获取按键A当前状态。 返回的结果是 ``True``：按键被按下， 或者 ``False``: 按键未被按下。
+   Get the current state of button A. The result returned is ``True``: the button is pressed, or the ``False``: button is not pressed.
 
-程序示例：
+Sample Code：
 ----------------------
 
 .. code-block:: python

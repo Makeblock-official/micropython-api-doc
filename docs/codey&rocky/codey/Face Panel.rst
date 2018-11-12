@@ -4,7 +4,7 @@
 .. module:: display
     :synopsis: Face Panel
 
-``display`` The main functionality and function of the display module
+The main functionality and function of the ``display`` module
 
 Face Panel Explanation
 ----------------------

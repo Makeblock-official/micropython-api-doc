@@ -1,19 +1,19 @@
-:mod:`potentiometer` --- 板载电位器旋钮
+:mod:`potentiometer` --- Onboard Potentiometer
 =============================================
 
 .. module:: potentiometer
-   :synopsis: 板载电位器旋钮
+    :synopsis: Onboard Potentiometer
 
-``potentiometer`` 模块的主要功能与函数
+The main functionality and function of the ``potentiometer`` module
 
-功能相关函数
+Function
 ----------------------
 
 .. function:: get_value()
 
-   获得电位器旋钮的当前数值。 数值范围 ``0 ~ 100``。
+   Get the current value of the potentiometer knob. The value range is ``0 ~ 100``.
 
-程序示例：
+Sample Code：
 ----------------------
 
 .. code-block:: python
