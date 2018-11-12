@@ -1,22 +1,22 @@
-:mod:`servo_driver` --- 双舵机驱动模块
+:mod:`servo_driver` --- Dual Servo Driver
 =============================================
 
 .. module:: servo_driver
-   :synopsis: 双舵机驱动模块
+    :synopsis: Dual Servo Driver
 
-``servo_driver`` 模块的主要功能与函数
+The main functionality and function of the ``servo_driver`` module
 
-功能相关函数
+Function
 ----------------------
 
 .. function:: set_angle(position, ch = 0)
 
-   设置双路舵机各路电机的动力，参数：
+   set power for the servo driver in each channel, parameters：
 
-   - *position* 控制目标舵机的转动角度，参数范围是 ``0 ~ 180``。
-   - *ch* 控制的舵机通道，参数范围是 ``0 ~ 2``，其中 ``0`` 表示两路舵机通道，``1`` 表示插槽1通道，``2`` 表示插槽2通道。
+    - *position* Refers to turning angle value of the servo controlled, the parameter range is ``0 ~ 180``.
+    - *ch* Refers to channel number servo controlled, the parameter range is ``0 ~ 2``, and ``0``: stands for both slots，``1``: for slot 1 channel，``2``: for slot 2 channel.
 
-程序示例：
+Sample Code：
 ------------
 
 .. code-block:: python

@@ -32,7 +32,7 @@ Function
 
 .. function:: get_yaw()
 
-   Get the yaw of the Euler angle. The returned data range is ``0 ~ 360``. Since the Codey onboard sensor is a six-axis sensor, there is no electronic compass. So in fact the yaw angle is just the integral of the Z-axis angular velocity. It has accumulated errors. If you want to get a true yaw angle, this API is not suitable for use.
+   Get the yaw of the Euler angle, The returned data range is ``0 ~ 360``. Since the Codey onboard sensor is a six-axis sensor, there is no electronic compass. So in fact the yaw angle is just the integral of the Z-axis angular velocity. It has accumulated errors. If you want to get a true yaw angle, this API is not suitable for use.
 
 .. function:: get_rotation(axis)
 

@@ -1,19 +1,19 @@
-:mod:`pir_sensor` --- 人体红外传感器模块
+:mod:`pir_sensor` --- PIR Sensor
 =============================================
 
 .. module:: pir_sensor
-   :synopsis: 人体红外传感器模块
+    :synopsis: PIR Sensor
 
-``pir_sensor`` 模块的主要功能与函数
+The main functionality and function of the ``pir_sensor`` module
 
-功能相关函数
+Function
 ----------------------
 
 .. function:: is_activated()
 
-   获取传感器的检测结果。 返回的结果是 ``True``：检测到附近有人， 或者 ``False``: 未检测到活动的人。
+   Get the detecting result from the sensor. Result will be ``True``: it detects human nearby or ``False``: it doesn't detect human nearby.
 
-程序示例：
+Sample Code：
 ------------
 
 .. code-block:: python

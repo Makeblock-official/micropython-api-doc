@@ -1,19 +1,19 @@
-:mod:`soil_moisture` --- 土壤湿度传感器模块
+:mod:`soil_moisture` --- Soil Moisture
 =============================================
 
 .. module:: soil_moisture
-   :synopsis: 土壤湿度传感器模块
+    :synopsis: Soil Moisture
 
-``soil_moisture`` 模块的主要功能与函数
+The main functionality and function of the ``soil_moisture`` module
 
-功能相关函数
+Function
 ----------------------
 
 .. function:: get_value()
 
-   获取传感器检测到的土壤湿度值，数值的范围是 ``0 ~ 100`` 数值越大，表示土壤湿度越高。
+   Get humidity of soil detected, ranging ``0 ~ 100``; the higher value is, the higher humidity is.
 
-程序示例：
+Sample Code：
 ------------
 
 .. code-block:: python

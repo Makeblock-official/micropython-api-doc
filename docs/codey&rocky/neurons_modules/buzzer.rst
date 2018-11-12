@@ -1,21 +1,21 @@
-:mod:`buzzer` --- 蜂鸣器模块
+:mod:`buzzer` --- Buzzer
 =============================================
 
 .. module:: buzzer
-   :synopsis: 蜂鸣器模块
+    :synopsis: Buzzer
 
-``buzzer`` 模块的主要功能与函数
+The main functionality and function of the ``buzzer`` module
 
-功能相关函数
+Function
 ----------------------
 
 .. function:: play_note(note_num, beat = None)
 
-   播放音符， 数字音符定义请参考： `scratch数字音符说明 <https://en.scratch-wiki.info/wiki/Play_Note_()_for_()_Beats_(block)>`_，参数：
+   Play note, digital note definitions please refer to： `scratch digital note description <https://en.scratch-wiki.info/wiki/Play_Note_()_for_()_Beats_(block)>`_, prameters：
 
-   - *note_num* 数值型，数值范围 ``48 - 72``，或者字符串类型，如 ``C4``。
-   - *beat* 数值数据，表示节拍数，如果不填，则一直播放。
-     音符与频率的对应关系如下::
+    - *note_num* numeric value, range of values ``48 - 72``, or string type, such as ``C4``.
+    - *beat* value data, indicates the number of beats, the default value is always playing.
+     notes and frequency is as follows::
 
      ['C2','65'],   ['D2','73'],   ['E2','82'],   ['F2','87'],
      ['G2','98'],   ['A2','110'],  ['B2','123'],  ['C3','131'],
@@ -31,25 +31,25 @@
 
 .. function:: play_tone(frequency, time = None)
 
-   播放设定频率的声音，参数：
+   Play the tone of setting frequency, prameters：
 
-   - *frequency* 数值数据，播放声音的频率，其数值范围是 ``0 ~ 5000``。
-   - *time* 数值数据，表示播放时间(单位是 ``毫秒-ms`` )，其数值范围是 ``0 ~ 数值范围极限``。
+    - *frequency* Numerical data, the frequency of sound which is played, and its value range is ``0 ~ 5000``.
+    - *time* Numerical data, indicating the playback time (in ``milliseconds - ms``) and its value range is ``0 ~ the value range limit``.
 
 .. function:: rest(number)
 
-   停止节拍，参数：
+   Stop the beat, parameters：
 
-   - *number* 数值数据，暂停的节拍数，其数值范围是 ``0 ~ 数值范围极限``。
+    - *number* Numerical data, the number of paused beats, its value range is ``0 ~ the value range limit``.
 
-常量
+Constant
 ----------------------
 
-.. data:: speaker.tempo
+.. data:: buzzer.tempo
 
-   数值数据，数值范围是 ``6 ~ 600``，表示播放速度的属性，单位是 ``bmp(beat per minute)``，即每一个节拍的长度。 默认数值是60，即一个节拍的维持时间是1秒。 ``rest`` 和 ``play_note`` 函数的节拍会受该常量影响。
+   Numerical data, indicating the nature of the playback speed, in ``bmp`` (beat per minute), which is the length of each beat.Its value range is ``6 ~ 600``. The default value is 60, which means that the duration of one beat is 1 second. The beats of the ``rest`` and ``play_note`` functions are affected by this constant.
 
-程序示例：
+Sample Code：
 ----------------------
 
 .. code-block:: python

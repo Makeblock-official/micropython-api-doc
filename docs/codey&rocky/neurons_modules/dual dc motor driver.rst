@@ -1,22 +1,22 @@
-:mod:`dc_motor_driver` --- 双直流电机驱动模块
+:mod:`dc_motor_driver` --- Dual DC Motor Driver
 =============================================
 
 .. module:: dc_motor_driver
-   :synopsis: 双直流电机驱动模块
+    :synopsis: dDual DC Motor Driver
 
-``dc_motor_driver`` 模块的主要功能与函数
+The main functionality and function of the ``dc_motor_driver`` module
 
-功能相关函数
+Function
 ----------------------
 
 .. function:: set_power(speed, ch = 0)
 
-   设置双路直流电机各路电机的动力，参数：
+   Set power for the motor driver in each channel, parameters:
 
-   - *speed* 控制目标电机的动力值，参数范围是 ``-100 ~ 100``。
-   - *ch* 控制的电机通道，参数范围是 ``0 ~ 2``，其中 ``0`` 表示两路电机通道，``1`` 表示插槽1通道，``2`` 表示插槽2通道。
+    - *speed* Refers to power value of the motor controlled, the parameter range is ``-100 ~ 100``.
+    - *ch* Refers to channel number of the motor controlled, the parameter range is ``0 ~ 2``, and ``0``: stands for both slots，``1``: for slot 1 channel，``2``: for slot 2 channel.
 
-程序示例：
+Sample Code：
 ------------
 
 .. code-block:: python

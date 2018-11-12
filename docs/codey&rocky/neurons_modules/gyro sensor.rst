@@ -1,52 +1,51 @@
-:mod:`gyro_sensor` --- 陀螺仪传感器
+:mod:`gyro_sensor` --- Gyro Sensor
 =============================================
 
 .. module:: gyro_sensor
-   :synopsis: 陀螺仪传感器
+    :synopsis: Gyro Sensor
 
-``gyro_sensor`` 模块的主要功能与函数
+The main functionality and function of the ``gyro_sensor`` module
 
-陀螺仪传感器说明
+gyro sensor user Guide
 ----------------------
 
-神经元模块的陀螺仪的坐标体系如下图所示：
+Refer to below picture for Gyro module coordinate system:
 
 .. image:: img/5.png
 
 
-功能相关函数
+Function
 ----------------------
 
 .. function:: get_roll()
 
-   获取姿态角的翻滚角，返回的数据范围是 ``-90 ~ 90``
+   Get the roll of the Euler angle, the returned data range is ``-90 ~ 90``.
 
 .. function:: get_pitch()
 
-   获取姿态角的俯仰角，返回的数据范围是 ``-180 ~ 180``
+   Get the pitch of the Euler angle, the returned data range is ``-180 ~ 180``.
 
 .. function:: get_yaw()
 
-   获取姿态角的偏航角，返回的数据范围是 ``-32768 ~ 32767``，由于板载的陀螺仪模块是六轴传感器，没有电子罗盘。所以
-   实际上偏航角只是使用了Z轴角速度的积分。它存在着积累误差。如果是想获得真实偏航角的，这个API不适合使用。
+   Get the yaw of the Euler angle, The returned data range is ``-32768 ~ 32767``，Since the gyro sensor is a six-axis sensor, there is no electronic compass. So in fact the yaw angle is just the integral of the Z-axis angular velocity. It has accumulated errors. If you want to get a true yaw angle, this API is not suitable for use.
 
 .. function:: is_shaked()
 
-   检测神经元的陀螺仪模块是否有被摇晃，返回值是布尔值，其中 ``True`` 表示陀螺仪模块被晃动了，``False`` 表示陀螺仪模块未被晃动。
+   Check if the gyro sensor is shaken, the return value is a Boolean value, where ``True`` means that gyro sensor is shaken, and ``False`` means that gyro sensor is not shaken.
 
 .. function:: get_acceleration(axis)
 
-   获取三个轴的加速度值，单位是 ``g``，参数：
+   Get the acceleration values of the three axes in ``g``, Parameters：
 
-   - *axis* 字符串类型，以 ``x``，``y``，``z`` 代表陀螺仪模块定义的坐标轴。
+   - *axis* String type, with ``x``, ``y``, ``z`` representing the axis defined by gyro sensor.
 
 .. function:: get_gyroscope(axis)
 
-   获取三个轴的角速度值，单位是 ``°/秒``，参数：
+   Get the angular velocity values of the three axes in ``°/sec``, Parameters：
 
-   - *axis* 字符串类型，以 ``x``，``y``，``z`` 代表陀螺仪模块定义的坐标轴。
+   - *axis* String type, with ``x``, ``y``, ``z`` representing the axis defined by gyro sensor.
 
-程序示例1：
+Sample Code 1：
 ------------
 
 .. code-block:: python
@@ -79,7 +78,7 @@
           print(neurons.gyro_sensor.get_yaw())
           time.sleep(0.05)
 
-程序示例2：
+Sample Code 2：
 ------------
 
 .. code-block:: python
@@ -95,7 +94,7 @@
           print(neurons.gyro_sensor.is_shaked())
           time.sleep(0.2)
 
-程序示例3：
+Sample Code 3：
 ------------
 
 .. code-block:: python
