@@ -1,6 +1,6 @@
 .. __codey_tutorial_micropython_index:
 
-程小奔的micropython使用说明
+Codey&Rocky's micropython instructions
 =============================================
 
 .. toctree::

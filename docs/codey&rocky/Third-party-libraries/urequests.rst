@@ -1,67 +1,67 @@
-:mod:`urequests` --- 网络请求模块
+:mod:`urequests` --- Network Request Module
 =============================================
 
 .. module:: urequests
-   :synopsis: 网络请求模块
+    :synopsis: Network Request Module
 
-``urequests`` 模块的主要功能与函数
+The main functionality and function of the ``urequests`` module
 
-功能相关函数
+Function
 ----------------------
 
 .. function:: request(method, url, data=None, json=None, headers={})
 
-   发送网络请求, 它会阻塞返回网络的响应数据，参数：
+   Send a network request, it will block the response data returned to the network, parameters：
 
-   - *method* 建立网络请求的方法，例如 ``HEAD``，``GET``，``POST``，``PUT``，``PATCH``, ``DELETE``。
-   - *url* 网络请求的URL(网址)。
-   - *data*（可选）在请求正文中发送的字典或元组列表[（键，值）]（将是表单编码的），字节或类文件对象。
-   - *json*（可选）在请求正文中发送的json数据。
-   - *headers*（可选）要与请求一起发送的HTTP标头字典。
+    - *method* method of establishing a network request. e.g. ``HEAD``，``GET``，``POST``，``PUT``，``PATCH``, ``DELETE``.
+    - *url* URL of the network request.
+    - *data* (optional), a dictionary, tuple list [(key, value)] (will be form coded), byte or class file object sent in the request body.
+    - *json* (optional), json data sent in the request body.
+    - *headers* (optional), HTTP header dictionary to be sent with the request.
 
 .. function:: head(url, **kw)
 
-   发送一个 HEAD 请求，返回类型是 request 的响应，参数：
+   Send a ``HEAD`` request, the return type is the response of the request, parameters：
 
-   - *url* 网络请求的URL(网址)。
-   - **kw request可选的参数
+    - *url* URL of the network request.
+    - **kw request optional parameters.
 
 .. function:: get(url, **kw)
 
-   发送一个 GET 请求，返回类型是 request 的响应，参数：
+   Send a ``GET`` request, the return type is the response of the request, parameters：
 
-   - *url* 网络请求的URL(网址)。
-   - **kw request可选的参数
+    - *url* URL of the network request.
+    - **kw request optional parameters.
 
 .. function:: post(url, **kw)
 
-   发送一个 POST 请求，返回类型是 request 的响应，参数：
+   Send a ``POST`` request, the return type is the response of the request, parameters：
 
-   - *url* 网络请求的URL(网址)。
-   - **kw request可选的参数
+    - *url* URL of the network request.
+    - **kw request optional parameters.
 
 .. function:: put(url, **kw)
 
-   发送一个 PUT 请求，返回类型是 request 的响应，参数：
+   Send a ``PUT`` request, the return type is the response of the request, parameters：
 
-   - *url* 网络请求的URL(网址)。
-   - **kw request可选的参数
+    - *url* URL of the network request.
+    - **kw request optional parameters.
 
 .. function:: patch(url, **kw)
 
-   发送一个 PATCH 请求，返回类型是 request 的响应，参数：
+   Send a ``PATCH`` request, the return type is the response of the request, parameters：
 
-   - *url* 网络请求的URL(网址)。
-   - **kw request可选的参数
+    - *url* URL of the network request.
+    - **kw request optional parameters.
 
 .. function:: delete(url, **kw)
 
-   发送一个 DELETE 请求，返回类型是 request 的响应，参数：
+   Send a ``DELETE`` request, the return type is the response of the request, parameters：
 
-   - *url* 网络请求的URL(网址)。
-   - **kw request可选的参数
+    - *url* URL of the network request.
+    - **kw request optional parameters.
 
-程序示例1：
+Sample Code 1：
 ------------
 
 .. code-block:: python
@@ -70,7 +70,7 @@
   import urequests as requests
   import time
   
-  #   此处需填入自己路由器的 ssid 和 密码
+  # Fill in your router's ssid and password here.
   codey.wifi.start('wifi_ssid', 'password')
   codey.led.show(0,0,0)
   while True:
@@ -82,7 +82,7 @@
       else:
           codey.led.show(0,0,0)
 
-程序示例2：
+Sample Code 2：
 ------------
 
 .. code-block:: python
@@ -91,7 +91,7 @@
   import urequests as requests
   import time
   
-  #  此处需填入自己路由器的 ssid 和 密码
+  # Fill in your router's ssid and password here.
   codey.wifi.start('wifi_ssid', 'password')
   codey.led.show(0,0,0)
   hour = minite = second = "00"
@@ -132,7 +132,7 @@
       else:
           codey.led.show(0,0,0)
 
-程序示例3：
+Sample Code 3：
 ------------
 
 .. code-block:: python
@@ -141,7 +141,7 @@
   import urequests as requests
   import ujson
   
-  # user_account 和 password 的账户信息就是mblock的账户
+  # user_account and password is mblock's account and password
   def get_user_request_header():
       post_data = ujson.dumps({ 'account': 'user_account', 'password': 'password'})
       request_url = 'http://passport2.makeblock.com/v1/user/login'
@@ -153,15 +153,15 @@
           header_data["deviceid"] = '30AEA427EC60'
       return header_data
   
-  #   获取天气信息
-  #   cid: 检查站id
-  #   arg: 需要查询的信息
-  #              aqi:  空气质量指数
-  #              pm25: PM2.5浓度
-  #              pm10: PM2.5浓度
-  #              co:   一氧化碳浓度
-  #              so2:  二氧化硫浓度
-  #              no2:  二氧化氮浓度
+  # Get weather information
+  # cid: checkpoint id
+  # arg: Information to be queried
+  #            aqi:  Air Quality Index
+  #            pm25: PM2.5 concentration
+  #            pm10: PM10 concentration
+  #            co:   Carbon monoxide concentration
+  #            so2:  Sulfur dioxide concentration
+  #            no2:  Nitrogen dioxide concentration
   def get_air_quality_info(cid, arg):
       if not codey.wifi.is_connected():
           return ''
@@ -171,13 +171,13 @@
       text = res.text
       return float(text)
   
-  #   此处需填入自己路由器的 ssid 和 密码
+  # Fill in your router's ssid and password here.
   codey.wifi.start('wifi_ssid', 'password')
   codey.led.show(0,0,0)
   while True:
       if codey.wifi.is_connected():
           codey.led.show(0,0,255)
-          data = get_air_quality_info('1539','aqi')  #1539 表示深圳测试点
+          data = get_air_quality_info('1539','aqi')  #1539 is Shenzhen checkpoint id
           codey.display.show(data)
       else:
           codey.led.show(0,0,0)

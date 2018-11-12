@@ -1,6 +1,6 @@
 .. _codey_driver:
 
-Python API list of Codey
+Python API list for Codey
 =====================
 
 .. toctree::

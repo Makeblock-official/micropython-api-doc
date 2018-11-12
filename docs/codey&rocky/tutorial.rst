@@ -1,13 +1,13 @@
 .. _tutorial-example-index:
 
-程小奔的实例教程
+Codey&Rocky's example tutorial
 ====================
 
-本教程的目的是让您开始codey的使用。
-我们需要你有一个小程或者一台程小奔，其次您还需要一根USB线(或者蓝牙dongle)可以连接小程及编程的主机。
-如果你是第一次使用程小奔的python编程，建议按照教程开始编程吧。
+The purpose of this tutorial is to get you started using codey&rocky.
+We need you to have a codey or codey&rocky, and secondly you need a USB cable (or Bluetooth dongle) to connect to the small and programmed host.
+If you are using Python programming for codey&rocky for the first time, it is recommended to start programming according to the tutorial.
 
-*程小奔 典型实例*
+*codey&rocky typical example*
 
 .. toctree::
 
