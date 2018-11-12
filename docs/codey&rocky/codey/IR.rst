@@ -17,8 +17,6 @@ Function
 
    Get the date from infrared remote controller. The data contains two parts: address and content, so it returns a list data which length 2. The first parameter is the address code, and the latter parameter is the data code.
 
-    - *time*  learning time, in ``seconds``.
-
 .. function:: send(str)
 
    Send infrared string, parameters：
@@ -47,7 +45,7 @@ Function
 
 .. function:: learn(time = 3)
 
-   Infrared learning ``time`` seconds, after calling this API will save the infrared information learned in ``time`` seconds. Default saved to the area with index = 1. parameter：
+   Infrared learning ``time`` seconds, after calling this API will save the infrared information learned in ``time`` seconds. Default saved to the area with index = 1, parameter：
 
     - *time*  learning time, in ``seconds``.
 

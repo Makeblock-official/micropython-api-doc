@@ -1,21 +1,21 @@
-:mod:`codey_broadcast` --- 广播模块
+:mod:`codey_broadcast` --- Broadcast Module
 =============================================
 
 .. module:: codey
-   :synopsis: 广播模块
+    :synopsis: Broadcast Module
 
-``codey_broadcast`` 模块的主要功能与函数(因为是系统函数，所以使用时不需要带模块名称)
+The main functionality and function of the ``codey_broadcast`` module (you do not need to bring the module name when using due to it is a system function)
 
-功能相关函数
+Function
 ----------------------
 
 .. function:: broadcast(str)
 
-    可以向串口，蓝牙以及自身的事件监听单元发送一个广播。参数：
+   A broadcast can be sent to the serial port, Bluetooth, and its own event monitoring unit, Parameter：
 
-    - *str* 广播的内容。
+    - *str* The content of the broadcast.
 
-程序示例：
+Sample Code：
 ----------------------
 
 .. code-block:: python

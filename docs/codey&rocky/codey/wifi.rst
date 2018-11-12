@@ -1,42 +1,42 @@
-:mod:`wifi` --- 板载wifi
+:mod:`wifi` --- Onboard Wifi
 =============================================
 
 .. module:: wifi
-   :synopsis: 板载wifi
+    :synopsis: Onboard Wifi
 
-``wifi`` 模块的主要功能与函数
+The main functionality and function of the ``wifi`` module
 
-功能相关函数
+Function
 ----------------------
 
 .. function:: start(ssid = "wifi_ssid", password = "password", mode = codey.wifi.STA)
 
-   启动wifi连接，该API不阻塞，API退出不代表wifi已连接上，需要调用 ``wifi.is_connected()`` 判断。参数：
+   Start wifi connection, the API will not block process, API exit does not mean that wifi is connected, you need to call ``wifi.is_connected()`` to judge, Parameter：
 
-  - *ssid* 字符串类型，wifi账号。
-  - *password* 字符串类型，wifi密码。
-  - *mode* 启动wifi的模式。
+  - *ssid* string type, wifi account.
+  - *password* string type, wifi password.
+  - *mode* starts the wifi mode.
 
 .. function:: is_connected()
 
-    检测wifi是否已连接上，返回值是布尔值，其中 ``True`` 表示wifi已经建立连接，``False`` 表示wifi尚未建立连接。
+   Check if wifi is connected, the return value is Boolean, where ``True`` means that wifi has established a connection, ``False`` means that wifi has not yet established a connection.
 
-常量
+Constant
 ----------------------
 
 .. data:: wifi.STA
 
-   wifi的站点模式，即无线网卡模式，该模式下，wifi可以连接到路由器。
+   The wifi station mode, that is, the wireless adapter mode. In this mode, wifi can be connected to the router.
 
 .. data:: wifi.AP
 
-   wifi的无线接入点模式，一般的无线路由/网桥工作在该模式，该模式下，wifi可以允许其它无线设备接入。
+   Wireless access point mode, the general wireless routing / bridge works in this mode. In this mode, it allows other wireless devices to access.
 
 .. data:: wifi.APSTA
 
-   wifi的AP和STA模式共存。
+   The wifi AP and STA modes coexist.
 
-程序示例：
+Sample Code：
 ----------------------
 
 .. code-block:: python

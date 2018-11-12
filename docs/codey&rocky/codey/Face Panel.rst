@@ -36,7 +36,7 @@ Function
 
 .. function:: set_pixel(pos_x, pos_y, status)
 
-   Set the brightness and deactivation status of a single pixel of the panel. Parameters：
+   Set the brightness and deactivation status of a single pixel of the panel, Parameters：
 
     - *pos_x* The coordinates of the x-axis for the pixel on the panel. The parameter range is ``0 ~ 15``.
     - *pos_y* The coordinates of the y-axis for the pixel on the panel. The parameter range is ``0 ~ 7``.
@@ -44,14 +44,14 @@ Function
 
 .. function:: get_pixel(pos_x, pos_y)
 
-   Get the current on and off states of a single pixel on the panel. The return value is a Boolean value, where ``True``: indicates that the pixel is lit, and ``False``: indicates that the pixel is off. parameter：
+   Get the current on and off states of a single pixel on the panel. The return value is a Boolean value, where ``True``: indicates that the pixel is lit, and ``False``: indicates that the pixel is off, parameter：
 
     - *pos_x* The coordinates of the x-axis for the pixel on the panel. The parameter range is ``0 ~ 15``.
     - *pos_y* The coordinates of the y-axis for the pixel on the panel. The parameter range is ``0 ~ 7``.
 
 .. function:: toggle_pixel(pos_x, pos_y)
 
-   切换表情面板上单个像素点当前的亮灭状态。参数：
+   Toggle the current on and off states of a single pixel on the panel, parameter：
 
     - *pos_x* The coordinates of the x-axis for the pixel on the panel. The parameter range is ``0 ~ 15``.
     - *pos_y* The coordinates of the y-axis for the pixel on the panel. The parameter range is ``0 ~ 7``.

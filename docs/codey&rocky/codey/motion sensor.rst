@@ -36,13 +36,13 @@ Function
 
 .. function:: get_rotation(axis)
 
-   Get the angle at which the Codey rotates on the three axes, and the counterclockwise direction is the positive direction. parameter：
+   Get the angle at which the Codey rotates on the three axes, and the counterclockwise direction is the positive direction, parameter：
 
     - *axis* String type, with ``x``, ``y``, ``z`` representing the axis defined by Codey.
 
 .. function:: reset_rotation(axis = "all")
 
-   The current angle of initial rotation around the three axes is 0, and the ``get_rotation()`` will start at 0. parameter:
+   The current angle of initial rotation around the three axes is 0, and the ``get_rotation()`` will start at 0, parameter:
 
     - *axis* string type, with ``x``, ``y``, ``z`` representing the axis defined by Codey, and ``all`` representing all three axes. This is also the default value for this function.
 
@@ -84,14 +84,14 @@ Function
 
 .. function:: get_acceleration(axis)
 
-   Get the acceleration values of the three axes in ``m/s^2``. Parameters：
+   Get the acceleration values of the three axes in ``m/s^2``, Parameters：
 
    - *axis* String type, with ``x``, ``y``, ``z`` representing the axis defined by Codey.
 
 
 .. function:: get_gyroscope(axis)
 
-   Get the angular velocity values of the three axes in ``°/sec``. Parameters：
+   Get the angular velocity values of the three axes in ``°/sec``, Parameters：
 
    - *axis* String type, with ``x``, ``y``, ``z`` representing the axis defined by Codey。
 

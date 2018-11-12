@@ -1,14 +1,14 @@
-:mod:`event` --- 事件处理单元
+:mod:`event` --- Event Processing Unit
 =============================================
 
 .. module:: event
-   :synopsis: 事件处理单元
+    :synopsis: Event Processing Unit
 
-``event`` 模块的主要功能与函数
+The main functionality and function of the ``event`` module
 
-事件处理单元使用说明
+Event processing unit instructions
 ----------------------
-用户事件的使用方式目前支持两种写法， 一种为注册方式：
+The way user events are used currently supports two ways of writing. One is registration：
 
 .. code-block:: python
 
@@ -24,7 +24,7 @@
           time.sleep(1)
   event.start(start_cb)
 
-另一种是使用修饰器的写法， 如：
+The other is to use a decorator, such as：
 
 .. code-block:: python
 
@@ -41,70 +41,72 @@
           codey.led.show(0, 0, 0)
           time.sleep(1)
 
-功能相关函数
+Function
 ----------------------
 
 .. function:: start(callback)
 
-   开机启动事件。
+   Startup event.
 
 .. function:: shaked(callback)
 
-   小程被摇晃事件。
+   Codey was shaken event.
 
 .. function:: received(callback, msgstr)
 
-   广播接收事件。
+   Broadcast reception detection event. In addition to the callback parameter, the parameter：
+
+    - *msgstr* string type, the string to be matched. The event will be triggered when the received string matches the matching string.
 
 .. function:: button_a_pressed(callback)
 
-   按键A被按下事件。
+   Button A pressed event.
 
 .. function:: button_b_pressed(callback)
 
-   按键B被按下事件。
+   Button B pressed event.
 
 .. function:: button_c_pressed(callback)
 
-   按键C被按下事件。
+   Button C pressed event.
 
 .. function:: tilted_left(callback)
 
-   小程左倾斜事件。
+   Codey left tilt event.
 
 .. function:: tilted_right(callback)
 
-   小程右倾斜事件。
+   Codey right tilt event.
 
 .. function:: ears_up(callback)
 
-   小程耳朵向上事件。
+   Codey ear up event.
 
 .. function:: ears_down(callback)
 
-   小程耳朵向下事件。
+   Codey ear down event.
 
 .. function:: ir_received(callback, ir_str)
 
-   红外字符串接收检测事件，除了回调参数之外，参数：
+   Infrared string reception detection event. In addition to the callback parameter, the parameter：
 
-   - *ir_str* 字符串类型，要匹配的字符串，当收到的字符串和匹配字符串一致时，会触发该事件。
+    - *ir_str* string type, the string to be matched. The event will be triggered when the received string matches the matching string.
 
 .. function:: greater_than(callback, threshold, type_str)
 
-   阈值比较事件，超过阈值则触发，除了回调参数之外，参数：
+   The threshold comparison event, which will be triggered when the threshold is exceeded. In addition to the callback parameter, the parameter：
 
-   - *threshold* 数值数据，设置触发的阈值。
-   - *type_str* 字符串数据，目前只支持 ``sound_sensor``：音量传感器，``timer``：计时器。
+    - *threshold* value data, set the threshold for triggering.
+    - *type_str* string data, currently only supports ``sound_sensor``: volume sensor, ``timer``: timer.
 
 .. function:: less_than(callback, threshold, type_str)
 
-   阈值比较事件，低于阈值则触发，除了回调参数之外，参数：
+   Threshold comparison event, triggered below the threshold, in addition to the callback parameter, the parameter：
 
-   - *threshold* 数值数据，设置触发的阈值。
-   - *type_str* 字符串数据，目前只支持 ``light_sensor``：光线传感器。
+    - *threshold* value data, set the threshold for triggering
+    - *type_str* string data, currently only supports ``light_sensor``: light sensor.
 
-程序示例：
+Sample Code：
 ----------------------
 
 .. code-block:: python

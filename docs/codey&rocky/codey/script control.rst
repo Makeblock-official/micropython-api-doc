@@ -1,27 +1,27 @@
-:mod:`codey_script_control` --- 脚本/线程控制
+:mod:`codey_script_control` --- Script/thread Control
 =============================================
 
 .. module:: codey
-   :synopsis: 脚本/线程控制
+    :synopsis: Script/thread Control
 
-``codey_script_control`` 模块的主要功能与函数(因为是系统函数，所以使用时不需要带模块名称)
+The main functionality and function of the ``codey_script_control`` module (you do not need to bring the module name when using due to it is a system function)
 
-功能相关函数
+Function
 ----------------------
 
 .. function:: stop_this_script()
 
-   停止当前脚本，和scratch停止脚本功能一致。
+   Stop the current script, consistent with the scratch stop script feature.
 
 .. function:: stop_other_scripts()
 
-   停止其他脚本，和scratch停止其他脚本功能一致。
+   Stop other scripts, consistent with the scratch stop other scripts feature.
 
 .. function:: stop_this_script()
 
-   停止所有脚本，和scratch停止所有脚本功能一致。
+   Stop all scripts, consistent with the scratch stop all scripts.
 
-程序示例：
+Sample Code：
 ----------------------
 
 .. code-block:: python

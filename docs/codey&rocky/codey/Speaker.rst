@@ -15,7 +15,7 @@ Function
 
 .. function:: play_melody(file_name)
 
-   Playing an audio file, the function will not block when playing, but if it is called continuously, the next playback will stop the previous playback. Parameters：
+   Playing an audio file, the function will not block when playing, but if it is called continuously, the next playback will stop the previous playback, Parameters：
 
     - *file_name* String type, the audio file name of the wav format burned in Codey Rocky flash. When inputting, the format suffix ``.wav`` can also be omitted
      The optional sound file has
@@ -66,13 +66,13 @@ Function
 
 .. function:: play_melody_until_done(file_name)
 
-   The audio file is played until it stops, and the function blocks playback, that is, the next instruction cannot be executed until the sound is played. parameter：
+   The audio file is played until it stops, and the function blocks playback, that is, the next instruction cannot be executed until the sound is played, parameter：
 
     - *file_name* String type, the audio file name of the wav format burned in Codey Rocky flash. When inputting, the format name ``.wav`` can also be omitted. For specific optional parameters, see ``play_melody``.
 
 .. function:: play_note(note_num, beat = None)
 
-   Play note, digital note definitions please refer to： `scratch digital note description <https://en.scratch-wiki.info/wiki/Play_Note_()_for_()_Beats_(block)>`_，parameters：
+   Play note, digital note definitions please refer to： `scratch digital note description <https://en.scratch-wiki.info/wiki/Play_Note_()_for_()_Beats_(block)>`_, prameters：
 
     - *note_num* numeric value, range of values ``48 - 72``, or string type, such as ``C4``.
     - *beat* value data, indicates the number of beats, the default value is always playing.
@@ -103,7 +103,7 @@ Function
 
     - *number* Numerical data, the number of paused beats, its value range is ``0 ~ the value range limit``.
 
-常量
+Constant
 ----------------------
 
 .. data:: speaker.volume
