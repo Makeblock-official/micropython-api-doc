@@ -2,7 +2,7 @@
 =============================================
 
 .. module:: urequests
-   :synopsis: 网络请求模块
+    :synopsis: 网络请求模块
 
 ``urequests`` 模块的主要功能与函数
 
@@ -13,53 +13,53 @@
 
    发送网络请求, 它会阻塞返回网络的响应数据，参数：
 
-   - *method* 建立网络请求的方法，例如 ``HEAD``，``GET``，``POST``，``PUT``，``PATCH``, ``DELETE``。
-   - *url* 网络请求的URL(网址)。
-   - *data*（可选）在请求正文中发送的字典或元组列表[（键，值）]（将是表单编码的），字节或类文件对象。
-   - *json*（可选）在请求正文中发送的json数据。
-   - *headers*（可选）要与请求一起发送的HTTP标头字典。
+    - *method* 建立网络请求的方法，例如 ``HEAD``，``GET``，``POST``，``PUT``，``PATCH``, ``DELETE``。
+    - *url* 网络请求的URL(网址)。
+    - *data*（可选）在请求正文中发送的字典或元组列表[（键，值）]（将是表单编码的），字节或类文件对象。
+    - *json*（可选）在请求正文中发送的json数据。
+    - *headers*（可选）要与请求一起发送的HTTP标头字典。
 
 .. function:: head(url, **kw)
 
-   发送一个 HEAD 请求，返回类型是 request 的响应，参数：
+   发送一个 HEAD 请求，返回类型是 request 的响应，参数：
 
-   - *url* 网络请求的URL(网址)。
-   - **kw request可选的参数
+    - *url* 网络请求的URL(网址)。
+    - **kw request可选的参数
 
 .. function:: get(url, **kw)
 
-   发送一个 GET 请求，返回类型是 request 的响应，参数：
+   发送一个 GET 请求，返回类型是 request 的响应，参数：
 
-   - *url* 网络请求的URL(网址)。
-   - **kw request可选的参数
+    - *url* 网络请求的URL(网址)。
+    - **kw request可选的参数
 
 .. function:: post(url, **kw)
 
-   发送一个 POST 请求，返回类型是 request 的响应，参数：
+   发送一个 POST 请求，返回类型是 request 的响应，参数：
 
-   - *url* 网络请求的URL(网址)。
-   - **kw request可选的参数
+    - *url* 网络请求的URL(网址)。
+    - **kw request可选的参数
 
 .. function:: put(url, **kw)
 
-   发送一个 PUT 请求，返回类型是 request 的响应，参数：
+   发送一个 PUT 请求，返回类型是 request 的响应，参数：
 
-   - *url* 网络请求的URL(网址)。
-   - **kw request可选的参数
+    - *url* 网络请求的URL(网址)。
+    - **kw request可选的参数
 
 .. function:: patch(url, **kw)
 
-   发送一个 PATCH 请求，返回类型是 request 的响应，参数：
+   发送一个 PATCH 请求，返回类型是 request 的响应，参数：
 
-   - *url* 网络请求的URL(网址)。
-   - **kw request可选的参数
+    - *url* 网络请求的URL(网址)。
+    - **kw request可选的参数
 
 .. function:: delete(url, **kw)
 
-   发送一个 DELETE 请求，返回类型是 request 的响应，参数：
+   发送一个 DELETE 请求，返回类型是 request 的响应，参数：
 
-   - *url* 网络请求的URL(网址)。
-   - **kw request可选的参数
+    - *url* 网络请求的URL(网址)。
+    - **kw request可选的参数
 
 程序示例1：
 ------------
@@ -70,7 +70,7 @@
   import urequests as requests
   import time
   
-  #   此处需填入自己路由器的 ssid 和 密码
+  # 此处需填入自己路由器的 ssid 和 密码
   codey.wifi.start('wifi_ssid', 'password')
   codey.led.show(0,0,0)
   while True:
@@ -91,7 +91,7 @@
   import urequests as requests
   import time
   
-  #  此处需填入自己路由器的 ssid 和 密码
+  # 此处需填入自己路由器的 ssid 和 密码
   codey.wifi.start('wifi_ssid', 'password')
   codey.led.show(0,0,0)
   hour = minite = second = "00"
@@ -153,17 +153,17 @@
           header_data["deviceid"] = '30AEA427EC60'
       return header_data
   
-  #   获取天气信息
-  #   cid: 检查站id
-  #   arg: 需要查询的信息
-  #              aqi:  空气质量指数
-  #              pm25: PM2.5浓度
-  #              pm10: PM2.5浓度
-  #              co:   一氧化碳浓度
-  #              so2:  二氧化硫浓度
-  #              no2:  二氧化氮浓度
-  def get_air_quality_info(cid, arg):
-      if not codey.wifi.is_connected():
+  # 获取天气信息
+  # cid: 检查站id
+  # arg: 需要查询的信息
+  #            aqi:  空气质量指数
+  #            pm25: PM2.5浓度
+  #            pm10: PM10浓度
+  #            co:   一氧化碳浓度
+  #            so2:  二氧化硫浓度
+  #            no2:  二氧化氮浓度
+  deget_air_quality_info(cid, arg):
+    if not codey.wifi.is_connected():
           return ''
       post_data = ujson.dumps({ "cid": cid, "arg": arg})
       request_url = 'http://msapi.passport3.makeblock.com/' + 'air/getone'
@@ -171,7 +171,7 @@
       text = res.text
       return float(text)
   
-  #   此处需填入自己路由器的 ssid 和 密码
+  # 此处需填入自己路由器的 ssid 和 密码
   codey.wifi.start('wifi_ssid', 'password')
   codey.led.show(0,0,0)
   while True:
