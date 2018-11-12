@@ -2,13 +2,13 @@
 =============================================
 
 .. module:: event
-   :synopsis: 事件处理单元
+    :synopsis: 事件处理单元
 
 ``event`` 模块的主要功能与函数
 
 事件处理单元使用说明
 ----------------------
-用户事件的使用方式目前支持两种写法， 一种为注册方式：
+用户事件的使用方式目前支持两种写法，一种为注册方式：
 
 .. code-block:: python
 
@@ -24,7 +24,7 @@
           time.sleep(1)
   event.start(start_cb)
 
-另一种是使用修饰器的写法， 如：
+另一种是使用修饰器的写法，如：
 
 .. code-block:: python
 
@@ -54,7 +54,9 @@
 
 .. function:: received(callback, msgstr)
 
-   广播接收事件。
+   广播接收事件, 除了回调参数之外，参数：
+
+    - *msgstr* 字符串类型，要匹配的字符串，当收到的字符串和匹配字符串一致时，会触发该事件。
 
 .. function:: button_a_pressed(callback)
 
@@ -88,21 +90,21 @@
 
    红外字符串接收检测事件，除了回调参数之外，参数：
 
-   - *ir_str* 字符串类型，要匹配的字符串，当收到的字符串和匹配字符串一致时，会触发该事件。
+    - *ir_str* 字符串类型，要匹配的字符串，当收到的字符串和匹配字符串一致时，会触发该事件。
 
 .. function:: greater_than(callback, threshold, type_str)
 
    阈值比较事件，超过阈值则触发，除了回调参数之外，参数：
 
-   - *threshold* 数值数据，设置触发的阈值。
-   - *type_str* 字符串数据，目前只支持 ``sound_sensor``：音量传感器，``timer``：计时器。
+    - *threshold* 数值数据，设置触发的阈值。
+    - *type_str* 字符串数据，目前只支持 ``sound_sensor``：音量传感器，``timer``：计时器。
 
 .. function:: less_than(callback, threshold, type_str)
 
    阈值比较事件，低于阈值则触发，除了回调参数之外，参数：
 
-   - *threshold* 数值数据，设置触发的阈值。
-   - *type_str* 字符串数据，目前只支持 ``light_sensor``：光线传感器。
+    - *threshold* 数值数据，设置触发的阈值。
+    - *type_str* 字符串数据，目前只支持 ``light_sensor``：光线传感器。
 
 程序示例：
 ----------------------

@@ -2,7 +2,7 @@
 =============================================
 
 .. module:: wifi
-   :synopsis: 板载wifi
+    :synopsis: 板载wifi
 
 ``wifi`` 模块的主要功能与函数
 
@@ -11,15 +11,15 @@
 
 .. function:: start(ssid = "wifi_ssid", password = "password", mode = codey.wifi.STA)
 
-   启动wifi连接，该API不阻塞，API退出不代表wifi已连接上，需要调用 ``wifi.is_connected()`` 判断。参数：
+   启动wifi连接，该API不阻塞，API退出不代表wifi已连接上，需要调用 ``wifi.is_connected()`` 判断，参数：
 
-  - *ssid* 字符串类型，wifi账号。
-  - *password* 字符串类型，wifi密码。
-  - *mode* 启动wifi的模式。
+    - *ssid* 字符串类型，wifi账号。
+    - *password* 字符串类型，wifi密码。
+    - *mode* 启动wifi的模式。
 
 .. function:: is_connected()
 
-    检测wifi是否已连接上，返回值是布尔值，其中 ``True`` 表示wifi已经建立连接，``False`` 表示wifi尚未建立连接。
+   检测wifi是否已连接上，返回值是布尔值，其中 ``True`` 表示wifi已经建立连接，``False`` 表示wifi尚未建立连接。
 
 常量
 ----------------------

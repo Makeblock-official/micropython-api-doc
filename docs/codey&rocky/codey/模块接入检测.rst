@@ -2,7 +2,7 @@
 =============================================
 
 .. module:: codey
-   :synopsis: 模块接入检测
+    :synopsis: 模块接入检测
 
 ``codey_external_module_detect`` 模块的主要功能与函数(因为是系统函数，所以使用时不需要带模块名称)
 

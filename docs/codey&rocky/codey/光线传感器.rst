@@ -2,7 +2,7 @@
 =============================================
 
 .. module:: light_sensor
-   :synopsis: 板载光线传感器
+    :synopsis: 板载光线传感器
 
 ``light_sensor`` 模块的主要功能与函数
 
