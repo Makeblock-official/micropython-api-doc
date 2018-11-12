@@ -1,18 +1,18 @@
 .. _codey_rocky_micropython_lib:
 
-程小奔的python接口
+Python API for Codey Rocky
 =====================
 
-本章介绍了程小奔的python接口，一共包含以下几类模块:
+This article includes the following python API for Codey Rocky:
 
-* 小程的python接口：主要是指小程板载驱动的一些API接口。
-* 小奔的python接口：小程用于控制小奔运动或者获取小奔传感器数据的一些API接口。
-* 第三方类库的python接口：程小奔内置的一些第三方类库的接口类，例如mqtt、urequest的类。
-* 神经元扩展模块的python接口：程小奔扩展神经元模块时的一些API接口。
+* Python API for Codey：refers to some API for Codey Rocky’s onboard driver.
+* Python API for Rocky：API on Codey which used for control the Rocky to move or to receive dates send from sensors on Rocky.
+* Python API for third-party libraries：some build-in interface for third-party libraries of Codey Rocky, such as mqtt or urequest.
+* Python API for extension Neuron modules：API which may used when add Neuron modules to Codey Rocky.
 
-小程的python接口
+Python API for Codey
 ---------------------------------------------
-小程的python接口API如下：
+Python API for Codey includes the following reference tables：
 
 .. toctree::
    :maxdepth: 2
@@ -20,27 +20,27 @@
    codey/index.rst
 
 
-小奔的python接口
+Python API for Rocky
 ------------------------------
-小奔的python接口API如下：
+Here is the python API for Rocky：
 
 .. toctree::
    :maxdepth: 2
 
    rocky/index.rst
 
-第三方类库的python接口
+Python API for third-party library
 ------------------------------
-第三方类库的python接口API如下：
+Here is the python API for third-party library：
 
 .. toctree::
    :maxdepth: 2
 
    Third-party-libraries/index.rst
 
-神经元扩展模块的python接口
+Python API for extension Neuron modules
 ------------------------------
-神经元扩展模块的python接口API如下：
+Here is the python API for extension Neuron modules：
 
 .. toctree::
    :maxdepth: 2

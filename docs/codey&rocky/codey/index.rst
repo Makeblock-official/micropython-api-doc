@@ -1,12 +1,12 @@
 .. _codey_driver:
 
-小程的python接口列表
+Python API list of Codey
 =====================
 
 .. toctree::
 
-   LED灯.rst
-   表情面板.rst
+   RGB LED.rst
+   Face Panel.rst
    扬声器.rst
    音量传感器.rst
    光线传感器.rst

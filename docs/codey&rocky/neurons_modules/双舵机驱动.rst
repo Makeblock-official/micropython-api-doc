@@ -11,9 +11,9 @@
 
 .. function:: set_angle(position, ch = 0)
 
-   设置双路直流电机各路电机的动力，参数：
+   设置双路舵机各路电机的动力，参数：
 
-   - *position* 控制目标的转动角度，参数范围是 ``0 ~ 180``。
+   - *position* 控制目标舵机的转动角度，参数范围是 ``0 ~ 180``。
    - *ch* 控制的舵机通道，参数范围是 ``0 ~ 2``，其中 ``0`` 表示两路舵机通道，``1`` 表示插槽1通道，``2`` 表示插槽2通道。
 
 程序示例：
@@ -31,15 +31,15 @@
   
   @event.button_a_pressed
   def on_button_a_pressed():
-      print("button a event successed")
+      print("button a event succeeded")
       neurons.servo_driver.set_angle(100, 1)
   
   @event.button_b_pressed
   def on_button_b_pressed():
-      print("button b event successed")
+      print("button b event succeeded")
       neurons.servo_driver.set_angle(100, 2)
   
   @event.button_c_pressed
   def on_button_c_pressed():
-      print("button c event successed")
+      print("button c event succeeded")
       neurons.servo_driver.set_angle(100, 0)
