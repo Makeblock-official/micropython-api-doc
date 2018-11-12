@@ -82,7 +82,7 @@ master_doc = micropy_port + '_' + 'index'
 
 # General information about the project.
 project = 'makeblock micropython 文档说明'
-copyright = '2014-2018, Damien P. George, Paul Sokolovsky, Yan Minge and contributors'
+copyright = '2014-2018, Damien P. George, Paul Sokolovsky, Yan Minge and contributors, Translators are meixiang dong, stephanie wu, eleven wang'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
