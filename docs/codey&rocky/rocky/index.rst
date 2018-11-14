@@ -5,5 +5,5 @@
 
 .. toctree::
 
-   移动底盘.rst
-   颜色红外传感器.rst
+   motion.rst
+   color&ir sensor.rst

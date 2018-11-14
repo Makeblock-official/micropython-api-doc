@@ -5,21 +5,21 @@
 
 .. toctree::
 
-   LED灯.rst
-   表情面板.rst
-   扬声器.rst
-   音量传感器.rst
-   光线传感器.rst
-   电位器旋钮.rst
-   按键A.rst
-   按键B.rst
-   按键C.rst
-   姿态传感器.rst
-   红外收发.rst
+   led.rst
+   face panel.rst
+   speaker.rst
+   sound sensor.rst
+   light sensor.rst
+   potentiometer.rst
+   button A.rst
+   button B.rst
+   button C.rst
+   motion sensor.rst
+   IR.rst
    wifi.rst
-   内置锂电池.rst
-   计数器.rst
-   广播.rst
-   模块接入检测.rst
-   脚本控制.rst
-   事件处理单元.rst
+   battery.rst
+   counter.rst
+   broadcast.rst
+   external module detect.rst
+   script control.rst
+   event.rst
