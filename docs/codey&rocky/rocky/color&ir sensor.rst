@@ -17,7 +17,7 @@ As shown in the figure, the sensors in front of the rocky are
 - Visible Light Sensor：detect the visible light intensity.
 - RGB LED：light LED with specific RGB value to achieve recognizing the color with using the visible light sensor.
 - Infrared Light Sensor：detect the infrared light intensity
-- IR Transmitter：transmit infrared light to achieve detecting the infrared light reflection intensity on the surface of the object with using the infrared light sensor.
+- Infrared Transmitter：transmit infrared light to achieve detecting the infrared light reflection intensity on the surface of the object with using the infrared light sensor.
 
 Function
 ----------------------
