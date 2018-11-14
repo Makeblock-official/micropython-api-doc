@@ -5,7 +5,7 @@ Python API list for Codey
 
 .. toctree::
 
-   led.rst
+   RGB LED.rst
    face panel.rst
    speaker.rst
    sound sensor.rst
