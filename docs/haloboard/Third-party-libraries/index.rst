@@ -7,3 +7,4 @@
 
    urequests.rst
    mqtt.rst
+   random.rst

@@ -85,52 +85,60 @@
 
 .. code-block:: python
 
+  # -*- coding: utf-8 -*-  
+  import haloboard
   from mqtt import MQTTClient
-  import codey
   import time
-  
+  import event
+
   MQTTHOST = "mq.makeblock.com"
   MQTTPORT = 1883
-  
-  # 任意填写
-  client_id = "20180911203800"
-  
-  # 示例
-  Topic = "/sensors/temperature/#"
-  
-  mqttClient = MQTTClient(client_id, MQTTHOST, port=MQTTPORT, user='test', password='test', keepalive=0, ssl=False)
-  
+  client_id = "another client"
+
+  # QoS Level 0：至多一次
+  # QoS Level 1：至少一次，有可能重复
+  # QoS Level 2：只有一次，确保消息只到达一次 
+
+  mqttClient = MQTTClient(client_id, MQTTHOST, port=MQTTPORT, user='YanMinge', password='YanMinge', keepalive=60, ssl=False)
+
   # 连接MQTT服务器
   def on_mqtt_connect():
       mqttClient.connect()
-  
-  # 发布消息
+
+  # publish 消息
   def on_publish(topic, payload, retain=False, qos = 0):
       mqttClient.publish(topic, payload, retain, qos)
-  
+
   # 消息处理函数
   def on_message_come(topic, msg):
       print(topic + " " + ":" + str(msg))
-      codey.display.show(msg)
-  
+
+
   # subscribe 消息
-  def on_subscribe():
+  def on_subscribe(Topic):
       mqttClient.set_callback(on_message_come)
-      mqttClient.subscribe(Topic, qos = 1)
-  
-  # 此处填入自己家的wiif账户和密码
-  codey.wifi.start('wifi_ssid', 'password')
-  codey.led.show(0,0,0)
-  codey.display.show(0)
-  while True:
-      if codey.wifi.is_connected():
-          on_mqtt_connect()
-          on_subscribe()
-          codey.led.show(0,0,255)
-          while True:
-              # Blocking wait for message
-              on_publish("/sensors/temperature/home", str(38), qos = 1)
-              mqttClient.wait_msg()
-              time.sleep(1)
-      else:
-          codey.led.show(0,0,0)
+      mqttClient.subscribe(Topic, qos = 0)
+
+  def sub_cb(topic, msg):
+      print((topic, msg))
+
+
+  @event.start
+  def use_code():
+      haloboard.wifi.start('Maker-guest', 'makeblock')
+      haloboard.led.show_all(0,0,0)
+      while True:
+          if haloboard.wifi.is_connected():
+              print("wifi connected!!!")
+              on_mqtt_connect()
+              on_subscribe("/cloud_message")
+              haloboard.led.show_all(0,0,255)
+              while True:
+                  mqttClient.wait_msg()
+                  on_publish("/cloud_message", "Yan")
+                  on_publish("/test_message2", "Yan 2")
+                  time.sleep(3)
+      
+          else:
+              haloboard.led.show_all(0,0,0)
+              
