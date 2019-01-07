@@ -36,7 +36,7 @@
 .. toctree::
    :maxdepth: 2
 
-   Third-party-libraries/index.rst
+   ../public_library/Third-party-libraries/index.rst
 
 神经元扩展模块的python接口
 ------------------------------
@@ -45,4 +45,4 @@
 .. toctree::
    :maxdepth: 2
 
-   neurons_modules/index.rst
+   ../public_library/neurons_modules/index.rst
