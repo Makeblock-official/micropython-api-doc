@@ -13,3 +13,4 @@ novapi的python接口列表
    modules/encoder_motor.rst
    modules/ranging_sensor.rst
    modules/smartservo.rst
+   modules/power_expand_board.rst
